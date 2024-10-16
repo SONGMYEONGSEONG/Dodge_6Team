@@ -48,30 +48,30 @@ public class EnemySpawnManager : SpawnManager<TestMonster>
     }
 
 
-    float SummonTime = 1.0f;
-    float sum1 = 0.0f;
-    float sum2 = 0.0f;
-    private void Update()
-    {
+    //float SummonTime = 1.0f;
+    //float sum1 = 0.0f;
+    //float sum2 = 0.0f;
+    //private void Update()
+    //{
 
-        if (sum1 >= SummonTime)
-        {
-            objectPools[prefabesList[0].name].PoolObject(Vector2.zero);
-            sum1 = 0;
-        }
-        else
-        {
-            sum1 += Time.deltaTime;
-        }
+    //    if (sum1 >= SummonTime)
+    //    {
+    //        objectPools[prefabesList[0].name].PoolObject(Vector2.zero);
+    //        sum1 = 0;
+    //    }
+    //    else
+    //    {
+    //        sum1 += Time.deltaTime;
+    //    }
 
-        if (sum2 >= SummonTime)
-        {
-            objectPools[prefabesList[1].name].PoolObject(Vector2.zero);
-            sum2 = 0;
-        }
-        else
-        {
-            sum2 += Time.deltaTime;
-        }
-    }
+    //    if (sum2 >= SummonTime)
+    //    {
+    //        objectPools[prefabesList[1].name].PoolObject(Vector2.zero);
+    //        sum2 = 0;
+    //    }
+    //    else
+    //    {
+    //        sum2 += Time.deltaTime;
+    //    }
+    //}
 }

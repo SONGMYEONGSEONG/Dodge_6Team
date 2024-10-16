@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             collision.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

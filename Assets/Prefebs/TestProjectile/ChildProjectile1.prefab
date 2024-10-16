@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8482297545488977620}
   - component: {fileID: 4772493868051636633}
+  - component: {fileID: -4070245631815033705}
   m_Layer: 0
   m_Name: ChildProjectile1
   m_TagString: Untagged
@@ -47,7 +48,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileName: ChildProjectile1
   Score: 10
-  PoolCount: 100
+  PoolCount: 10
+--- !u!50 &-4070245631815033705
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233889741348918899}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7920762257119854409
 GameObject:
   m_ObjectHideFlags: 0

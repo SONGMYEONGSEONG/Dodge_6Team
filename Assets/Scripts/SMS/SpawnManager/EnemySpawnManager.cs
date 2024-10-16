@@ -17,9 +17,8 @@ public class EnemySpawnManager : SpawnManager<TestMonster>
         Debug.Log(gameObject.name + "Initalize 완료!");
     }
 
-    private void Start()
+    private void Awake()
     {
-
         TestMonster gameObj;
 
         foreach (TestMonster prefab in prefabesList)
@@ -27,9 +26,9 @@ public class EnemySpawnManager : SpawnManager<TestMonster>
             GameObject poolContainer = new GameObject("Pool_Container_" + prefab.name);
 
             ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
-            
 
-            for(int i = 0; i < prefab.PoolCount;i++)
+
+            for (int i = 0; i < prefab.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);
                 gameObj.OnEventPushObject += PushObject;

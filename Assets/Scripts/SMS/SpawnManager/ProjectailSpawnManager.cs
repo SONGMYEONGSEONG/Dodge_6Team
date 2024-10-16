@@ -11,11 +11,6 @@ public class ProjectailSpawnManager : SpawnManager<TestProjectile>
 
     private void Awake()
     {
-
-    }
-
-    private void Start()
-    {
         TestProjectile gameObj;
 
         foreach (TestProjectile prefab in prefabesList)
@@ -37,6 +32,7 @@ public class ProjectailSpawnManager : SpawnManager<TestProjectile>
 
         Initialize();
     }
+
 
     public TestProjectile PoolObject(string objName , Vector2 spawnPos)
     {

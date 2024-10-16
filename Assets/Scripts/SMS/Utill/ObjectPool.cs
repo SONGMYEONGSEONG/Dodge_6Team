@@ -23,6 +23,7 @@ public class ObjectPool<T> where T : MonoBehaviour
     //    }
     //}
 
+
     public bool InitPushObject(T poolObject)
     {
         if (poolObject == null) 

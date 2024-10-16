@@ -5,12 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemySpawnManager : SpawnManager
+public class EnemySpawnManager : SpawnManager<TestMonster>
 {
     //부모 클래스를 저장
-    [SerializeField] List<TestMonster> prefabesList;
+    //[SerializeField] List<TestMonster> prefabesList;
 
-    Dictionary<string, ObjectPool<TestMonster>> objectPools = new Dictionary<string, ObjectPool<TestMonster>>();
+    //Dictionary<string, ObjectPool<TestMonster>> objectPools = new Dictionary<string, ObjectPool<TestMonster>>();
 
     public override void Initialize()
     {
@@ -56,7 +56,7 @@ public class EnemySpawnManager : SpawnManager
 
         if (sum1 >= SummonTime)
         {
-            objectPools[prefabesList[0].name].PoolObject();
+            objectPools[prefabesList[0].name].PoolObject(Vector2.zero);
             sum1 = 0;
         }
         else
@@ -66,7 +66,7 @@ public class EnemySpawnManager : SpawnManager
 
         if (sum2 >= SummonTime)
         {
-            objectPools[prefabesList[1].name].PoolObject();
+            objectPools[prefabesList[1].name].PoolObject(Vector2.zero);
             sum2 = 0;
         }
         else

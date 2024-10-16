@@ -6,7 +6,7 @@ public class ChildProjectile1 : TestProjectile
     {
         transform.position += new Vector3(0, 0.1f, 0);
 
-        if (transform.position.x <= -5.0f)
+        if (transform.position.y <= -5.0f)
         {
             base.CompletePurPose();
         }

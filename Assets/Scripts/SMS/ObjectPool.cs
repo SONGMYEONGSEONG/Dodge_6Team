@@ -37,7 +37,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         return true;
     }
 
-    public T PoolObject()
+    public T PoolObject(Vector2 pos)
     {
         if (PoolQueue.Count <= 0)
         {
@@ -46,6 +46,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         }
 
         T obj = PoolQueue.Dequeue();
+        obj.gameObject.transform.position = pos;
         obj.gameObject.SetActive(true);
         return obj;
     }

@@ -131,4 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: ChildMonster2
   Score: 200
-  PoolCount: 10
+  PoolCount: 5

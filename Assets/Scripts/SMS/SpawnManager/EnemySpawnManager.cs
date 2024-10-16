@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class EnemySpawnManager : SpawnManager
 {
@@ -15,22 +17,36 @@ public class EnemySpawnManager : SpawnManager
         Debug.Log(gameObject.name + "Initalize 완료!");
     }
 
-    private void Awake()
-    {
-        foreach(TestMonster prefab in prefabesList)
-        {
-            ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
-            objectPool.Initailize(prefab.PoolCount, prefab);
-
-            objectPools.Add(prefab.name,objectPool);
-        }
-    }
-
     private void Start()
     {
-        Initialize();
 
+        TestMonster gameObj;
+
+        foreach (TestMonster prefab in prefabesList)
+        {
+            GameObject poolContainer = new GameObject("Pool_Container_" + prefab.name);
+
+            ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
+            
+
+            for(int i = 0; i < prefab.PoolCount;i++)
+            {
+                gameObj = Instantiate(prefab, poolContainer.transform);
+                gameObj.OnEventPushObject += PushObject;
+                objectPool.InitPushObject(gameObj);
+            }
+
+            objectPools.Add(prefab.monsterName, objectPool);
+        }
+
+        Initialize();
     }
+
+    private void PushObject(TestMonster testmonster)
+    {
+        objectPools[testmonster.monsterName].PushObject(testmonster);
+    }
+
 
     float SummonTime = 1.0f;
     float sum1 = 0.0f;

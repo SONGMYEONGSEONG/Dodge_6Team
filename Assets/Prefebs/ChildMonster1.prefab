@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e83528708fd00641918631729d0ac44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterName: ChildMonster1
   PoolCount: 30
-  Name: ChildMonster1
 --- !u!1 &6465867838837415600
 GameObject:
   m_ObjectHideFlags: 0

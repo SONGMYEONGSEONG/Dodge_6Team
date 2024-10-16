@@ -1,28 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 
-public class ObjectPool<T> : MonoBehaviour where T : Component
+public class ObjectPool<T> where T : MonoBehaviour
 {
     public Queue<T> PoolQueue = new Queue<T>();
 
-    public void Initailize(int poolCount, T poolObject)
+    //public void Initailize(int poolCount, )
+    //{
+    //    GameObject poolContainer = new GameObject("Pool_Container_" + poolObject.name);
+    //    gameObj = Instantiate(poolObject, poolContainer.transform);
+
+    //    T gameObj;
+    //    for (int i = 0; i < poolCount; i++)
+    //    {
+
+    //        gameObj.gameObject.SetActive(false);
+
+    //        PoolQueue.Enqueue(gameObj);
+    //    }
+    //}
+
+    public bool InitPushObject(T poolObject)
     {
-        GameObject poolContainer = new GameObject("Pool_Container_" + poolObject.name);
-        
-        T gameObj;
-        for (int i = 0; i < poolCount; i++)
-            {
-                gameObj = Instantiate(poolObject, poolContainer.transform);
-                gameObj.gameObject.SetActive(false);
-                PoolQueue.Enqueue(gameObj);
-            }
+        if (poolObject == null) 
+        {
+            Debug.Log(poolObject.name + "이 null 입니다.");
+            return false;
+        }
+
+        poolObject.gameObject.SetActive(false);
+        PoolQueue.Enqueue(poolObject);
+
+        return true;
     }
 
     public T PoolObject()
     {
-        if(PoolQueue.Count <= 0)
+        if (PoolQueue.Count <= 0)
         {
             Debug.Log(typeof(T).Name + "오브젝트 갯수 부족!");
             return null;
@@ -33,5 +50,11 @@ public class ObjectPool<T> : MonoBehaviour where T : Component
         return obj;
     }
 
+    public void PushObject(T pushObj)
+    {
+        pushObj.gameObject.SetActive(false);
+        PoolQueue.Enqueue(pushObj);
+
+    }
 
 }

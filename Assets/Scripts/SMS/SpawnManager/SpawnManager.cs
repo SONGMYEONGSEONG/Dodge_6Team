@@ -5,6 +5,4 @@ using UnityEngine;
 public abstract class SpawnManager : MonoBehaviour,iManager
 {
     public virtual void Initialize() { }
-
-
 }

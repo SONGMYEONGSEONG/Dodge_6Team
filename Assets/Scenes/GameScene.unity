@@ -333,8 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabesList:
-  - {fileID: 4889468292149901270, guid: 6eddabecae0eacd44a4a28db6ccf4874, type: 3}
-  - {fileID: 4871934902008097189, guid: 423a027bda94f7a47a4642745515bab2, type: 3}
+  - {fileID: 5944138066816338066, guid: 6eddabecae0eacd44a4a28db6ccf4874, type: 3}
+  - {fileID: 4206027118731095831, guid: 423a027bda94f7a47a4642745515bab2, type: 3}
 --- !u!4 &1476118068
 Transform:
   m_ObjectHideFlags: 0

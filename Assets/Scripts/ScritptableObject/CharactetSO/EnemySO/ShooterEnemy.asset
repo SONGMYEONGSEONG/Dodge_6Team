@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9641c20e4b708694689837c42475627d, type: 3}
   m_Name: ShooterEnemy
   m_EditorClassIdentifier: 
-  HP: 0
-  Speed: 0
+  HP: 10
+  Speed: 1

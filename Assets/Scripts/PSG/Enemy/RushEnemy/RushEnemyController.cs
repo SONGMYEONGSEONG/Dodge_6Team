@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RushEnemyController : EnemyController
 {
-    [SerializeField] private EnemySO EnemySO;
+    [SerializeField] private EnemySO enemySO;
     private void Start()
     {
         base.Start();
@@ -14,6 +14,13 @@ public class RushEnemyController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        EnemyMove(findPlayer, EnemySO.Speed);
+        if (destroyCheck)
+        {
+            EnemyMove(findPlayer, enemySO.Speed);
+        }
+        else
+        {
+            findPlayer = GameObject.FindGameObjectWithTag("Player").gameObject;
+        }
     }
 }

@@ -4,9 +4,9 @@ public class ChildProjectile1 : TestProjectile
 {
     private void Update()
     {
-        transform.position += new Vector3(0, 0.1f, 0);
+        transform.position += new Vector3(0, -0.1f, 0);
 
-        if (transform.position.y <= -5.0f)
+        if (transform.position.y <= -15.0f)
         {
             base.CompletePurPose();
         }

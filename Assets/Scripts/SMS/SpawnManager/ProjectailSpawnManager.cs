@@ -38,10 +38,24 @@ public class ProjectailSpawnManager : SpawnManager<TestProjectile>
         Initialize();
     }
 
-    private void PushObject(TestProjectile testmonster)
+    public TestProjectile PoolObject(string objName , Vector2 spawnPos)
     {
-        objectPools[testmonster.projectileName].PushObject(testmonster);
+        return objectPools[objName].PoolObject(spawnPos);
     }
+
+    public TestProjectile PoolObject(TestProjectile testProjectile, Vector2 spawnPos)
+    {
+
+        return objectPools[testProjectile.projectileName].PoolObject(spawnPos);
+    }
+
+    private void PushObject(TestProjectile testProjectile)
+    {
+        objectPools[testProjectile.projectileName].PushObject(testProjectile);
+    }
+
+    /* Test :: 총알 랜덤 생성 지역 */
+
 
 
     //float SummonTime = 1.0f;

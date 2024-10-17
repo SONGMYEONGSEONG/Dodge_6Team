@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0bea452afcb0d2469f445f0c68a6c68, type: 3}
-  m_Name: PlayerDataSO
+  m_Script: {fileID: 11500000, guid: d353c960afcc8014fa0a9b092f10a0f1, type: 3}
+  m_Name: ShiledItemSO
   m_EditorClassIdentifier: 
-  ProjectilePower: 1
-  AttackSpeed: 0.2
+  ProjectilePower: 0
+  AttackSpeed: 0
   Shield: 1
-  Speed: 5
-  point: 100
+  Speed: 0
+  point: 0

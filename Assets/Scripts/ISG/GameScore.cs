@@ -15,6 +15,13 @@ public class GameScore : MonoBehaviour
     // 현재 점수를 저장하는 private 변수
     private int currentScore = 0;
 
+    private float survivalTime = 0f;
+    private float scoreIncreaseInterval = 1f; // 1초마다 점수 증가
+    private float lastScoreIncreaseTime = 0f;
+    private int scoreIncreaseAmount = 10; // 10점씩 증가
+
+    private bool isGameActive = false; // 게임 활성화 상태를 추적
+
     // Awake 메서드: 스크립트가 초기화될 때 호출됨
     void Awake()
     {
@@ -31,11 +38,21 @@ public class GameScore : MonoBehaviour
         }
     }
 
-    // Start 메서드: 첫 프레임 업데이트 전에 호출됨
     void Start()
     {
         // 게임 시작 시 점수 텍스트 업데이트
         UpdateScoreText();
+    }
+    public void StartGame()
+    {
+        isGameActive = true;
+        survivalTime = 0f;
+        lastScoreIncreaseTime = 0f;
+        ResetScore();
+    }
+    public void EndGame()
+    {
+        isGameActive = false;
     }
 
     // 점수를 추가하는 public 메서드
@@ -62,6 +79,22 @@ public class GameScore : MonoBehaviour
         UpdateScoreText();
     }
 
+    private void Update()
+    {
+        if (isGameActive)
+        {
+            survivalTime += Time.deltaTime;
+            IncreaseScoreOverTime();
+        }
+    }
+    private void IncreaseScoreOverTime()
+    {
+        if (survivalTime - lastScoreIncreaseTime >= scoreIncreaseInterval)
+        {
+            AddPoints(scoreIncreaseAmount);
+            lastScoreIncreaseTime = survivalTime;
+        }
+    }
     // 점수 텍스트를 업데이트하는 private 메서드
     private void UpdateScoreText()
     {

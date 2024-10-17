@@ -54,7 +54,6 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
 
     public EnemyController PoolObject(EnemyController enemy, Vector2 spawnPos)
     {
-
         return objectPools[enemy.EnemySO.enemyName].PoolObject(spawnPos);
     }
 

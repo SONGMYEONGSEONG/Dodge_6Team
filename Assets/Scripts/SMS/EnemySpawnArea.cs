@@ -85,8 +85,16 @@ public class EnemySpawnArea : MonoBehaviour
 
             //오브젝트 이름 문자열에 투사체오브젝트 넣어도 됨
             //오브젝트 이름은 지금 테스트 용으로 들어간상태
-            EnemyController obj = enemySpawnManager.PoolObject("RushEnemy", pos);
-            //EnemyController obj = enemySpawnManager.PoolObject("ShooterEnemy", pos);
+            EnemyController obj;
+            if (UnityEngine.Random.Range(0,100) > 9) //90% 확률
+            {
+                obj = enemySpawnManager.PoolObject("RushEnemy", pos);
+            }
+            else
+            {
+                obj = enemySpawnManager.PoolObject("ShooterEnemy", pos);
+            }
+          
         }
     }
 }

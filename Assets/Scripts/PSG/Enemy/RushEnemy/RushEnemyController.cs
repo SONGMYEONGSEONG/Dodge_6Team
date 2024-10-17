@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class RushEnemyController : EnemyController
 {
-    [SerializeField] private EnemySO enemySO;
+    /*20241017 - 송명성 위치 변경 ShooterEnemyController -> EnemyController*/
+    //[SerializeField] private EnemySO enemySO;
     private void Start()
     {
         base.Start();

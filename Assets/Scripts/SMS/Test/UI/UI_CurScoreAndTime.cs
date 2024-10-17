@@ -36,6 +36,6 @@ public class UI_CurScoreAndTimeAndLife : MonoBehaviour
 
         strBuilder.Clear();
         strBuilder.Append(life.ToString());
-        timeTMP.text = strBuilder.ToString();
+        lifeTMP.text = strBuilder.ToString();
     }
 }

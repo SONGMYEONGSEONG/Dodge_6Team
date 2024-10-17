@@ -16,12 +16,10 @@ public class PlayerCollision : MonoBehaviour
         // 피격 쿨타임 구현하기
         if(enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
-            if(gameObject.GetComponent<BoxCollider2D>().enabled == true)
-            {
-                enemyCollisionCooldown = false;
-                Debug.Log("충돌, 쿨다운 시작");
-                Invoke("TriggerCoolDown", 1f);
-            }
+            enemyCollisionCooldown = false;
+            Debug.Log("충돌, 쿨다운 시작");
+            Invoke("TriggerCoolDown", 1f);
+            
         }
         if (collision.CompareTag("Item"))
         {

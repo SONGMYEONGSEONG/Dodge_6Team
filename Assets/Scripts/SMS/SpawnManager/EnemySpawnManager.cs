@@ -27,7 +27,6 @@ public class EnemySpawnManager : SpawnManager<TestMonster>
 
             ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
 
-
             for (int i = 0; i < prefab.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);

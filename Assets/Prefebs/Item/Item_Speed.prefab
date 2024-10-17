@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 560195401342904140}
   - component: {fileID: 7778326657592303341}
   - component: {fileID: 754392569806934415}
+  - component: {fileID: 2770129786079574909}
   m_Layer: 0
   m_Name: Item_Speed
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +107,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2770129786079574909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812824274025193936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1c6cfc1ae9c7e4dbdbd52c8cefdfa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 83d859165f796a649a9b5b9ae8dd9ab9, type: 2}
 --- !u!1 &7122123156441820423
 GameObject:
   m_ObjectHideFlags: 0

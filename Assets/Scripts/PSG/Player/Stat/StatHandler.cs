@@ -5,25 +5,19 @@ using UnityEngine;
 public class StatHandler : MonoBehaviour
 {
     [SerializeField] private PlayerSO playerSO;
-    public int ProjectilePower;
-    public float AttackSpeed;
-    public int Shield;
-    public float Speed;
-    public int point;
+    public int ProjectilePower = 0;
+    public float AttackSpeed = 0;
+    public int Shield = 0;
+    public float Speed = 0;
+    public int point = 0;
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         ProjectilePower = playerSO.ProjectilePower;
         AttackSpeed = playerSO.AttackSpeed;
-        Shield = playerSO.Shield;            
+        Shield = playerSO.Shield;
         Speed = playerSO.Speed;
         point = playerSO.point;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -8,11 +8,11 @@ public class TopDownController : MonoBehaviour
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
     public event Action OnAttackEvent;
-    private StatHandler statHandler;
+    [SerializeField] private StatHandler statHandler;
     protected bool isAttacking {  get; set; }
 
     private float timeSinceLastAttack = float.MaxValue;
-    private void Awake()
+    private void Start()
     {
         statHandler = GetComponent<StatHandler>();
     }

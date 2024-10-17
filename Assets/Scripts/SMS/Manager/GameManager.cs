@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour, iManager
     public int CurPlayerLife { get { return curPlayerLife; } set { curPlayerLife = value; } }
 
     private bool isPlaying;
-    public bool IsPlaying { get { return isPlaying; } }
+    public bool IsPlaying { get { return isPlaying; } set { isPlaying = value; } }
 
     private void Awake()
     {
@@ -52,13 +52,12 @@ public class GameManager : MonoBehaviour, iManager
 
     private void Start()
     {
-        Time.timeScale = 0;
         Initialize();
     }
 
     public void Initialize()
     {
-        isPlaying = true;
+       
         curGameTime = 0.0f;
         curGameScore = 0;
         curPlayerLife = 3;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class ProjectileSpawnArea : MonoBehaviour
 {
+
     [SerializeField] private EnumSpawnArea areaPos;
     [SerializeField] private BoxCollider2D collider;
     [SerializeField] private ProjectailSpawnManager projectailSpawnManager;
@@ -32,18 +34,23 @@ public class ProjectileSpawnArea : MonoBehaviour
         {
             Debug.Log("projectailSpawnManager 컴포넌트 호출 실패");
         }
+
+        UI_StartBtn.OnEventGameStart += GameStart;
     }
 
     //Up Aread에서만 랜덤생성 -Test
     private void Start()
     {
+        halfWidth = collider.size.x * 0.5f;
+        halfHeight = collider.size.y * 0.5f;
+    }
+
+    private void GameStart()
+    {
         if (RandomSpawnCoroutin == null)
         {
             RandomSpawnCoroutin = StartCoroutine(RandomSpawn(0));
         }
-
-        halfWidth = collider.size.x * 0.5f;
-        halfHeight = collider.size.y * 0.5f;
     }
 
     //AreaIndex 수정해야됨 
@@ -54,23 +61,22 @@ public class ProjectileSpawnArea : MonoBehaviour
             switch (areaPos)
             {
                 case EnumSpawnArea.UP:
-                    spawnAreaX = Random.Range(-halfWidth, +halfWidth);
+                    spawnAreaX = UnityEngine.Random.Range(-halfWidth, +halfWidth);
                     spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit;
                     break;
                 case EnumSpawnArea.DOWN:
-                    spawnAreaX = Random.Range(-halfWidth, +halfWidth);
+                    spawnAreaX = UnityEngine.Random.Range(-halfWidth, +halfWidth);
                     spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit * -1;
                     break;
                 case EnumSpawnArea.Left:
                     spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit * -1;
-                    spawnAreaY = Random.Range(-halfHeight, +halfHeight);
+                    spawnAreaY = UnityEngine.Random.Range(-halfHeight, +halfHeight);
                     break;
                 case EnumSpawnArea.Right:
                     spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit;
-                    spawnAreaY = Random.Range(-halfHeight, +halfHeight);
+                    spawnAreaY = UnityEngine.Random.Range(-halfHeight, +halfHeight);
                     break;
             }
-
 
             Vector2 pos = new Vector2(spawnAreaX, spawnAreaY);
 

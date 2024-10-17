@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UI_StartBtn : MonoBehaviour
 {
+    public static event Action OnEventGameStart;
     public void GameStart()
     {
-        Debug.Log("게임시작 3초전");
-        Invoke("GameDealyStart", 3.0f);
+        GameManager.Instance.Initialize();
+        GameManager.Instance.IsPlaying = true;
+        OnEventGameStart?.Invoke();
+
+        gameObject.SetActive(false);
     }
 
-    private void GameDealyStart()
-    {
-        Debug.Log("게임시작!!");
-        Time.timeScale = 1.0f;
-    }
 }

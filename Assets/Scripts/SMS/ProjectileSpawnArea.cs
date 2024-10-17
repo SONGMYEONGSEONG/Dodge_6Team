@@ -97,9 +97,6 @@ public class ProjectileSpawnArea : MonoBehaviour
                 obj = projectailSpawnManager.PoolObject("EnemyBulletSmall", pos);
             }
 
-
-
-
             Vector2 dir = (playerTr.position - obj.transform.position).normalized;
             obj.OnMove(dir);
 

@@ -47,7 +47,11 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         if (collision.CompareTag("Bullet"))
         {
             collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            /*20241017 - 오브젝트 풀에서 비활성화 하기에 주석처리*/
+            //gameObject.SetActive(false);
+
+            /*20241017 - 송명성 다 사용한 적 객체 오브젝트 풀에 반납*/
+            CompletePurPose();
         }
     }
 }

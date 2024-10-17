@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   findPlayer: {fileID: 0}
   rb: {fileID: 0}
-  destroyCheck: 1
   enemySO: {fileID: 11400000, guid: f9938f86aca48aa4a99969abb39e767b, type: 2}
 --- !u!50 &853766321385016874
 Rigidbody2D:
@@ -138,7 +137,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.08492674}

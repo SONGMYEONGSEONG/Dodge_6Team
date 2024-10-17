@@ -46,6 +46,17 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
         Initialize();
     }
 
+    public EnemyController PoolObject(string objName, Vector2 spawnPos)
+    {
+        return objectPools[objName].PoolObject(spawnPos);
+    }
+
+    public EnemyController PoolObject(EnemyController enemy, Vector2 spawnPos)
+    {
+
+        return objectPools[enemy.EnemySO.enemyName].PoolObject(spawnPos);
+    }
+
     //private void PushObject(TestMonster testmonster)
     private void PushObject(EnemyController testmonster)
     {
@@ -53,31 +64,4 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
         objectPools[testmonster.EnemySO.enemyName].PushObject(testmonster);
     }
 
-
-    //float SummonTime = 1.0f;
-    //float sum1 = 0.0f;
-    //float sum2 = 0.0f;
-    //private void Update()
-    //{
-
-    //    if (sum1 >= SummonTime)
-    //    {
-    //        objectPools[prefabesList[0].name].PoolObject(Vector2.zero);
-    //        sum1 = 0;
-    //    }
-    //    else
-    //    {
-    //        sum1 += Time.deltaTime;
-    //    }
-
-    //    if (sum2 >= SummonTime)
-    //    {
-    //        objectPools[prefabesList[1].name].PoolObject(Vector2.zero);
-    //        sum2 = 0;
-    //    }
-    //    else
-    //    {
-    //        sum2 += Time.deltaTime;
-    //    }
-    //}
 }

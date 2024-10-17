@@ -17,10 +17,11 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     /*20241017 - 송명성 접근할수 있게 프로퍼티 선언*/
     public EnemySO EnemySO { get { return enemySO; } }
 
-
     /*20241017 - 송명성 오브젝트 풀링을 위한 이벤트 추가*/
     public event Action<EnemyController> OnEventPushObject;
     public event Action<int> OnEventDieObject;
+
+    [SerializeField] List<GameObject> itemObj = new List<GameObject>();
     protected void CompletePurPose()
     {
         OnEventPushObject?.Invoke(this);
@@ -62,4 +63,16 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
             CompletePurPose();
         }
     }
+    private void OnDisable()
+    {
+        System.Random random = new System.Random();
+        int itemInsRandom = random.Next(1, 101);
+        if(itemInsRandom <= 20)
+        {
+            int itemListRandom = random.Next(0, itemObj.Count);
+            Instantiate(itemObj[itemListRandom],gameObject.transform.position, Quaternion.identity);
+        }
+
+    }
+
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class LJHGameManager : MonoBehaviour
 {
     public GameObject obstaclePrefab; // 장애물 프리팹
     public float spawnInterval = 2f; // 생성 주기

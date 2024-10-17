@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class EnemySpawnArea : MonoBehaviour
 {
+    static event Action OnEventGameStart;
+
     [SerializeField] private EnumSpawnArea areaPos;
     [SerializeField] private BoxCollider2D collider;
     [SerializeField] private EnemySpawnManager enemySpawnManager;
@@ -32,20 +36,23 @@ public class EnemySpawnArea : MonoBehaviour
         {
             Debug.Log("enemySpawnManager 컴포넌트 호출 실패");
         }
+
+        UI_StartBtn.OnEventGameStart += GameStart;
     }
 
     //Up Aread에서만 랜덤생성 -Test
     private void Start()
     {
+        halfWidth = collider.size.x * 0.5f;
+        halfHeight = collider.size.y * 0.5f;
+    }
+    private void GameStart()
+    {
         if (RandomSpawnCoroutin == null)
         {
             RandomSpawnCoroutin = StartCoroutine(RandomSpawn(0));
         }
-
-        halfWidth = collider.size.x * 0.5f;
-        halfHeight = collider.size.y * 0.5f;
     }
-
     //AreaIndex 수정해야됨 
     IEnumerator RandomSpawn(int areaIndex)
     {
@@ -56,20 +63,20 @@ public class EnemySpawnArea : MonoBehaviour
             switch (areaPos)
             {
                 case EnumSpawnArea.UP:
-                    spawnAreaX = Random.Range(-halfWidth, +halfWidth);
+                    spawnAreaX = UnityEngine.Random.Range(-halfWidth, +halfWidth);
                     spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit;
                     break;
                 case EnumSpawnArea.DOWN:
-                    spawnAreaX = Random.Range(-halfWidth, +halfWidth);
+                    spawnAreaX = UnityEngine.Random.Range(-halfWidth, +halfWidth);
                     spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit * -1;
                     break;
                 case EnumSpawnArea.Left:
                     spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit * -1;
-                    spawnAreaY = Random.Range(-halfHeight, +halfHeight);
+                    spawnAreaY = UnityEngine.Random.Range(-halfHeight, +halfHeight);
                     break;
                 case EnumSpawnArea.Right:
                     spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit;
-                    spawnAreaY = Random.Range(-halfHeight, +halfHeight);
+                    spawnAreaY = UnityEngine.Random.Range(-halfHeight, +halfHeight);
                     break;
             }
 
@@ -78,8 +85,16 @@ public class EnemySpawnArea : MonoBehaviour
 
             //오브젝트 이름 문자열에 투사체오브젝트 넣어도 됨
             //오브젝트 이름은 지금 테스트 용으로 들어간상태
-            EnemyController obj = enemySpawnManager.PoolObject("RushEnemy", pos);
-            //EnemyController obj = enemySpawnManager.PoolObject("ShooterEnemy", pos);
+            EnemyController obj;
+            if (UnityEngine.Random.Range(0,100) > 9) //90% 확률
+            {
+                obj = enemySpawnManager.PoolObject("RushEnemy", pos);
+            }
+            else
+            {
+                obj = enemySpawnManager.PoolObject("ShooterEnemy", pos);
+            }
+          
         }
     }
 }

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour, iManager
         }
     }
 
-    //[SerializeField] private UI_CurScoreAndTimeAndLife uI_CurScoreAndTimeAndLife;
+    [SerializeField] private UI_CurScoreAndTimeAndLife uI_CurScoreAndTimeAndLife;
 
     private float curGameTime = 0.0f;
     private int curGameScore = 0;
@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour, iManager
     public float CurGameTime { get { return curGameTime; } set { curGameTime = value; } }
     public int CurGameScore { get { return curGameScore; } set { curGameScore = value; } }
     public int CurPlayerLife { get { return curPlayerLife; } set { curPlayerLife = value; } }
+
+    private bool isPlaying;
+    public bool IsPlaying { get { return isPlaying; } set { isPlaying = value; } }
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour, iManager
 
     public void Initialize()
     {
+       
         curGameTime = 0.0f;
         curGameScore = 0;
         curPlayerLife = 3;
@@ -62,11 +66,13 @@ public class GameManager : MonoBehaviour, iManager
 
     private void Update()
     {
-        //curGameTime += Time.deltaTime;
-        //uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
+        if (isPlaying)
+        {
+            curGameTime += Time.deltaTime;
+            uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
 
-        //GetLife(curPlayerLife);
-
+            GetLife(curPlayerLife);
+        }
         /*
         if(player.isDeath)
         {
@@ -92,16 +98,15 @@ public class GameManager : MonoBehaviour, iManager
     public void GetScore(int score)
     {
         curGameScore += score;
-        //uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
+        uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
     }
     public void GetTime(int time)
     {
         curGameTime += time;
-        //uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
+        uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
     }
     public void GetLife(int life)
     {
-        curPlayerLife += life;
-        //uI_CurScoreAndTimeAndLife.LifeDisplay(curPlayerLife);
+        uI_CurScoreAndTimeAndLife.LifeDisplay(curPlayerLife);
     }
 }

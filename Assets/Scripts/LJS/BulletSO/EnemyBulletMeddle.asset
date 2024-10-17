@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fb068478e768248b88bd6fb7cfa8ce, type: 3}
-  m_Name: PlayerBullet2
+  m_Script: {fileID: 11500000, guid: e02ce9cb7d3149a4bb110b174af54392, type: 3}
+  m_Name: EnemyBulletMeddle
   m_EditorClassIdentifier: 
-  bulletName: PlayerBullet2
-  bulletDamage: 1
-  bulletSpeed: 1
-  bulletSprite: {fileID: 21300012, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
+  bulletName: EnemyBulletMeddle
+  bulletSpeed: 100
+  bulletSprite: {fileID: 21300024, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
+  PoolCount: 500

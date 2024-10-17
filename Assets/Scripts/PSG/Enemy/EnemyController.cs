@@ -20,9 +20,14 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     /*20241017 - 송명성 오브젝트 풀링을 위한 이벤트 추가*/
     public event Action<EnemyController> OnEventPushObject;
+    public event Action<int> OnEventDieObject;
     protected void CompletePurPose()
     {
         OnEventPushObject?.Invoke(this);
+    }
+    protected void GetScore()
+    {
+        OnEventDieObject?.Invoke(EnemySO.Score);
     }
     /*20241017 - 송명성 오브젝트 풀링을 위한 이벤트 추가*/
 
@@ -46,6 +51,9 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     {
         if (collision.CompareTag("Bullet"))
         {
+            //점수 계산
+            GetScore();
+
             collision.gameObject.SetActive(false);
             /*20241017 - 오브젝트 풀에서 비활성화 하기에 주석처리*/
             //gameObject.SetActive(false);

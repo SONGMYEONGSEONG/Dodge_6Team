@@ -36,6 +36,7 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);
                 gameObj.OnEventPushObject += PushObject;
+                gameObj.OnEventDieObject += GameManager.Instance.GetScore;
                 objectPool.InitPushObject(gameObj);
             }
 

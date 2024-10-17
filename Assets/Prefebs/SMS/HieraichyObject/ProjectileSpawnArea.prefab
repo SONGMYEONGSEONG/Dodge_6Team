@@ -93,7 +93,7 @@ MonoBehaviour:
   areaPos: 0
   collider: {fileID: 1853520846296394326}
   projectailSpawnManager: {fileID: 0}
-  spawnTime: 0.8
+  spawnTime: 1
   TestplayerTr: {fileID: 0}
 --- !u!1 &1600550028075116143
 GameObject:
@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 2
   collider: {fileID: 1203127928159734238}
   projectailSpawnManager: {fileID: 0}
-  spawnTime: 1
+  spawnTime: 2
   TestplayerTr: {fileID: 0}
 --- !u!1 &5599712599624338850
 GameObject:
@@ -315,10 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 3
   collider: {fileID: 7775919671662396356}
   projectailSpawnManager: {fileID: 0}
-  spawnTime: 1
+  spawnTime: 2
   TestplayerTr: {fileID: 0}
 --- !u!1 &6136520585769830812
 GameObject:
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 1
   collider: {fileID: 8430235051835122487}
   projectailSpawnManager: {fileID: 0}
-  spawnTime: 0.8
+  spawnTime: 4
   TestplayerTr: {fileID: 0}

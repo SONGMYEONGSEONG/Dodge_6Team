@@ -93,7 +93,7 @@ MonoBehaviour:
   areaPos: 1
   collider: {fileID: 8968550224195777203}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 4
+  spawnTime: 7
   playersTr: {fileID: 0}
 --- !u!1 &1606904804399791542
 GameObject:
@@ -188,7 +188,7 @@ MonoBehaviour:
   areaPos: 0
   collider: {fileID: 7748198098733847125}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 3
+  spawnTime: 5
   playersTr: {fileID: 0}
 --- !u!1 &4350315987442111066
 GameObject:
@@ -318,7 +318,7 @@ MonoBehaviour:
   areaPos: 2
   collider: {fileID: 4266129043472200922}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 2
+  spawnTime: 9
   playersTr: {fileID: 0}
 --- !u!1 &8415794245189539809
 GameObject:
@@ -413,5 +413,5 @@ MonoBehaviour:
   areaPos: 3
   collider: {fileID: 499600788189777126}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 1
+  spawnTime: 11
   playersTr: {fileID: 0}

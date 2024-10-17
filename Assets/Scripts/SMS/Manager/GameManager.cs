@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour, iManager
         }
     }
 
-
+    [SerializeField] private UI_CurScoreAndTime uI_CurScoreAndTime;
 
     private float curGameTime = 0.0f;
     private int curGameScore = 0;
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour, iManager
 
     private void Update()
     {
+        curGameTime += Time.deltaTime;
+        uI_CurScoreAndTime.TimeDisplay(curGameTime);
         /*
         if(player.isDeath)
         {
@@ -84,9 +86,14 @@ public class GameManager : MonoBehaviour, iManager
     }
 
     //점수를 획득 하는 메서드, 이벤트로 구성 할것 
-    private void GetScore(int score)
+    public void GetScore(int score)
     {
         curGameScore += score;
+        uI_CurScoreAndTime.ScoreDisplay(curGameScore);
     }
-
+    public void GetTime(int Time)
+    {
+        curGameTime += Time;
+        uI_CurScoreAndTime.TimeDisplay(curGameTime);
+    }
 }

@@ -5,7 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemySpawnManager : SpawnManager<TestMonster>
+//public class EnemySpawnManager : SpawnManager<TestMonster>
+public class EnemySpawnManager : SpawnManager<EnemyController>
 {
     //부모 클래스를 저장
     //[SerializeField] List<TestMonster> prefabesList;
@@ -19,57 +20,49 @@ public class EnemySpawnManager : SpawnManager<TestMonster>
 
     private void Awake()
     {
-        TestMonster gameObj;
+        //TestMonster gameObj;
+        EnemyController gameObj;
 
-        foreach (TestMonster prefab in prefabesList)
+        //foreach (TestMonster prefab in prefabesList)
+        foreach (EnemyController prefab in prefabesList)
         {
             GameObject poolContainer = new GameObject("Pool_Container_" + prefab.name);
 
-            ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
+            //ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
+            ObjectPool<EnemyController> objectPool = new ObjectPool<EnemyController>();
 
-            for (int i = 0; i < prefab.PoolCount; i++)
+            //for (int i = 0; i < prefab.PoolCount; i++)
+            for (int i = 0; i < prefab.EnemySO.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);
                 gameObj.OnEventPushObject += PushObject;
+                gameObj.OnEventDieObject += GameManager.Instance.GetScore;
                 objectPool.InitPushObject(gameObj);
             }
 
-            objectPools.Add(prefab.monsterName, objectPool);
+            //objectPools.Add(prefab.monsterName, objectPool);
+            objectPools.Add(prefab.EnemySO.enemyName, objectPool);
         }
 
         Initialize();
     }
 
-    private void PushObject(TestMonster testmonster)
+    public EnemyController PoolObject(string objName, Vector2 spawnPos)
     {
-        objectPools[testmonster.monsterName].PushObject(testmonster);
+        return objectPools[objName].PoolObject(spawnPos);
     }
 
+    public EnemyController PoolObject(EnemyController enemy, Vector2 spawnPos)
+    {
 
-    //float SummonTime = 1.0f;
-    //float sum1 = 0.0f;
-    //float sum2 = 0.0f;
-    //private void Update()
-    //{
+        return objectPools[enemy.EnemySO.enemyName].PoolObject(spawnPos);
+    }
 
-    //    if (sum1 >= SummonTime)
-    //    {
-    //        objectPools[prefabesList[0].name].PoolObject(Vector2.zero);
-    //        sum1 = 0;
-    //    }
-    //    else
-    //    {
-    //        sum1 += Time.deltaTime;
-    //    }
+    //private void PushObject(TestMonster testmonster)
+    private void PushObject(EnemyController testmonster)
+    {
+        //objectPools[testmonster.monsterName].PushObject(testmonster);
+        objectPools[testmonster.EnemySO.enemyName].PushObject(testmonster);
+    }
 
-    //    if (sum2 >= SummonTime)
-    //    {
-    //        objectPools[prefabesList[1].name].PoolObject(Vector2.zero);
-    //        sum2 = 0;
-    //    }
-    //    else
-    //    {
-    //        sum2 += Time.deltaTime;
-    //    }
-    //}
 }

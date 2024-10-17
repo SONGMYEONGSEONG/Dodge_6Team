@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   Speed: 1
+  enemyName: ShooterEnemy
+  Score: 200
+  PoolCount: 10

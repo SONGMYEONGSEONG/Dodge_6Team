@@ -55,18 +55,18 @@ public class ProjectileSpawnArea : MonoBehaviour
             {
                 case EnumSpawnArea.UP:
                     spawnAreaX = Random.Range(-halfWidth, +halfWidth);
-                    spawnAreaY = 6.0f;
+                    spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit;
                     break;
                 case EnumSpawnArea.DOWN:
                     spawnAreaX = Random.Range(-halfWidth, +halfWidth);
-                    spawnAreaY = -6.0f;
+                    spawnAreaY = (float)EnumSpawnAreaLimit.UPDownLimit * -1;
                     break;
                 case EnumSpawnArea.Left:
-                    spawnAreaX = -10.0f;
+                    spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit * -1;
                     spawnAreaY = Random.Range(-halfHeight, +halfHeight);
                     break;
                 case EnumSpawnArea.Right:
-                    spawnAreaX = 10.0f;
+                    spawnAreaX = (float)EnumSpawnAreaLimit.LeftRightLimit;
                     spawnAreaY = Random.Range(-halfHeight, +halfHeight);
                     break;
             }

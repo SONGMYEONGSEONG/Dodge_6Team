@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabesList:
-  - {fileID: 5944138066816338066, guid: 6eddabecae0eacd44a4a28db6ccf4874, type: 3}
-  - {fileID: 4206027118731095831, guid: 423a027bda94f7a47a4642745515bab2, type: 3}
+  - {fileID: 277496288151283872, guid: 649da51e9c21150458d7b657f16dd5bf, type: 3}
+  - {fileID: 2103673849837851554, guid: ab9b164a80840414f85728d7387cfd09, type: 3}

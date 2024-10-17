@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 2
   Speed: 5
+  enemyName: RushEnemy
+  Score: 100
+  PoolCount: 20

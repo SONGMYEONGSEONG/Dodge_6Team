@@ -18,4 +18,9 @@ public class TestProjectile : MonoBehaviour, iPoolable<TestProjectile>
     {
         OnEventPushObject?.Invoke(this);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CompletePurPose();
+    }
 }

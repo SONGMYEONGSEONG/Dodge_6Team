@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour, iManager
         }
     }
 
-    [SerializeField] private UI_CurScoreAndTime uI_CurScoreAndTime;
+    [SerializeField] private UI_CurScoreAndTimeAndLife uI_CurScoreAndTimeAndLife;
 
     private float curGameTime = 0.0f;
     private int curGameScore = 0;
@@ -63,7 +63,9 @@ public class GameManager : MonoBehaviour, iManager
     private void Update()
     {
         curGameTime += Time.deltaTime;
-        uI_CurScoreAndTime.TimeDisplay(curGameTime);
+        uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
+
+        GetLife(curPlayerLife);
         /*
         if(player.isDeath)
         {
@@ -89,11 +91,16 @@ public class GameManager : MonoBehaviour, iManager
     public void GetScore(int score)
     {
         curGameScore += score;
-        uI_CurScoreAndTime.ScoreDisplay(curGameScore);
+        uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
     }
-    public void GetTime(int Time)
+    public void GetTime(int time)
     {
-        curGameTime += Time;
-        uI_CurScoreAndTime.TimeDisplay(curGameTime);
+        curGameTime += time;
+        uI_CurScoreAndTimeAndLife.TimeDisplay(curGameTime);
+    }
+    public void GetLife(int life)
+    {
+        curPlayerLife += life;
+        uI_CurScoreAndTimeAndLife.LifeDisplay(curPlayerLife);
     }
 }

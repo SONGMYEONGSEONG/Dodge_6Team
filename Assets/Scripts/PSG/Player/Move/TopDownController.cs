@@ -8,17 +8,21 @@ public class TopDownController : MonoBehaviour
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
     public event Action OnAttackEvent;
-    [SerializeField] private PlayerSO playerSO;
+    private StatHandler statHandler;
     protected bool isAttacking {  get; set; }
 
     private float timeSinceLastAttack = float.MaxValue;
+    private void Awake()
+    {
+        statHandler = GetComponent<StatHandler>();
+    }
     private void Update()
     {
         HandleAttackDelay();
     }
     private void HandleAttackDelay()
     {
-        if(timeSinceLastAttack < playerSO.AttackDelay)
+        if(timeSinceLastAttack < statHandler.AttackSpeed)
         {
             timeSinceLastAttack += Time.deltaTime;
         }

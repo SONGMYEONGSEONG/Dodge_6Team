@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7778326657592303341}
   - component: {fileID: 754392569806934415}
   m_Layer: 0
-  m_Name: Item_Potion_Speed
+  m_Name: Item_Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.6}
   m_EdgeRadius: 0
 --- !u!50 &754392569806934415
 Rigidbody2D:

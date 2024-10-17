@@ -3,7 +3,9 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     [Header("PlayerStat Info")]
-    public int HP;
-    public float AttackDelay;
+    public int ProjectilePower;
+    public float AttackSpeed;
+    public int Shield;
     public float Speed;
+    public int point;
 }

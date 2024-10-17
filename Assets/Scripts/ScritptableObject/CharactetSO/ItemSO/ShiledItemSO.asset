@@ -17,3 +17,4 @@ MonoBehaviour:
   Shield: 1
   Speed: 0
   point: 0
+  CoolTime: 3

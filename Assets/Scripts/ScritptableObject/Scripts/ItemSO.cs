@@ -8,4 +8,5 @@ public class ItemSO : ScriptableObject
     public int Shield;
     public float Speed;
     public int point;
+    public float CoolTime;
 }

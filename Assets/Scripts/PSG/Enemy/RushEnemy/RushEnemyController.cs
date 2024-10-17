@@ -14,13 +14,6 @@ public class RushEnemyController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        if (destroyCheck)
-        {
-            EnemyMove(findPlayer, enemySO.Speed);
-        }
-        else
-        {
-            findPlayer = GameObject.FindGameObjectWithTag("Player").gameObject;
-        }
+        EnemyMove(findPlayer, enemySO.Speed);        
     }
 }

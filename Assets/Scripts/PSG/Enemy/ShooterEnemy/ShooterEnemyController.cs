@@ -11,6 +11,6 @@ public class ShooterEnemyController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        EnemyMove(findPlayer, enemySO.Speed);
+        EnemyMove(findPlayer, enemySO.Speed);        
     }
 }

@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] protected GameObject findPlayer;
     protected GameObject enemyspriteRotation;
     public Rigidbody2D rb;
-    [SerializeField]protected bool destroyCheck = true;
     public void Start()
     {
         enemyspriteRotation = gameObject.transform.GetChild(0).gameObject;

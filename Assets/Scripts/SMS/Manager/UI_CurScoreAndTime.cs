@@ -7,20 +7,22 @@ using UnityEngine;
 
 public class UI_CurScoreAndTime : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] testMeshPros;
-    StringBuilder strBuilder = new StringBuilder();
+    [SerializeField] private TextMeshProUGUI scoreTMP;
+    [SerializeField] private TextMeshProUGUI timeTMP;
+
+   StringBuilder strBuilder = new StringBuilder();
 
     public void ScoreDisplay(int score)
     {
         strBuilder.Clear();
         strBuilder.Append(score.ToString());
-        testMeshPros[0].text = strBuilder.ToString();
+        scoreTMP.text = strBuilder.ToString();
     }
 
     public void TimeDisplay(float time)
     {
         strBuilder.Clear();
         strBuilder.Append(time.ToString("N2"));
-        testMeshPros[1].text = strBuilder.ToString();
+        timeTMP.text = strBuilder.ToString();
     }
 }

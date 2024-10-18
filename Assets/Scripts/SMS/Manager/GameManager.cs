@@ -78,12 +78,12 @@ public class GameManager : MonoBehaviour, iManager
     }
     public void GetScore(EnemyController enemy)
     {
-        curGameScore = enemy.EnemySO.Score;
+        curGameScore += enemy.EnemySO.Score;
         uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
     }
     public void GetScore(ItemController item)
     {
-        curGameScore = item.ItemSO.Score;
+        curGameScore += item._ItemSO.Score;
         uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
     }
     public void GetTime(int time)

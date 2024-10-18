@@ -29,7 +29,7 @@ public class ItemSpawnManager : SpawnManager<ItemController>
             ObjectPool<ItemController> objectPool = new ObjectPool<ItemController>();
 
             //for (int i = 0; i < prefab.PoolCount; i++)
-            for (int i = 0; i < prefab.ItemSO.PoolCount; i++)
+            for (int i = 0; i < prefab._ItemSO.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);
                 gameObj.OnEventPushObject += GameManager.Instance.GetScore;
@@ -38,7 +38,7 @@ public class ItemSpawnManager : SpawnManager<ItemController>
             }
 
             //objectPools.Add(prefab.monsterName, objectPool);
-            objectPools.Add(prefab.ItemSO.ItemName, objectPool);
+            objectPools.Add(prefab._ItemSO.ItemName, objectPool);
         }
 
         Initialize();
@@ -55,7 +55,7 @@ public class ItemSpawnManager : SpawnManager<ItemController>
         if (itemInsRandom <= itemSpawnPercent)
         {
             int index = UnityEngine.Random.Range(0, prefabesList.Count);
-            string itemName = prefabesList[index].ItemSO.ItemName;
+            string itemName = prefabesList[index]._ItemSO.ItemName;
             return objectPools[itemName].PoolObject(spawnPos);
         }
 
@@ -64,14 +64,14 @@ public class ItemSpawnManager : SpawnManager<ItemController>
 
     public ItemController PoolObject(ItemController item, Vector2 spawnPos)
     {
-        return objectPools[item.ItemSO.ItemName].PoolObject(spawnPos);
+        return objectPools[item._ItemSO.ItemName].PoolObject(spawnPos);
     }
 
     //private void PushObject(TestMonster testmonster)
     private void PushObject(ItemController item)
     {
         //objectPools[testmonster.monsterName].PushObject(testmonster);
-        objectPools[item.ItemSO.ItemName].PushObject(item);
+        objectPools[item._ItemSO.ItemName].PushObject(item);
     }
 
 }

@@ -34,7 +34,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             ItemController itemController = collision.GetComponent<ItemController>();
-            ItemSO collisionItemSO = itemController.ItemSO;
+            ItemSO collisionItemSO = itemController._ItemSO;
             StartCoroutine(ApplyItemTime(collisionItemSO, collisionItemSO.CoolTime));
         }
     }

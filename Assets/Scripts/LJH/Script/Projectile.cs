@@ -17,11 +17,11 @@ public class Obstacle : MonoBehaviour
         transform.Translate(transform.up * speed * Time.deltaTime); // 현재 방향으로 이동
 
         // 플레이어와의 거리 체크
-        float distance = Vector2.Distance(transform.position, player.position);
-        if (distance > deleteDistance) // 일정 거리 이상이면 삭제
-        {
-            Destroy(gameObject);
-        }
+        //float distance = Vector2.Distance(transform.position, player.position);
+        //if (distance > deleteDistance) // 일정 거리 이상이면 삭제
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     void SetInitialDirection()

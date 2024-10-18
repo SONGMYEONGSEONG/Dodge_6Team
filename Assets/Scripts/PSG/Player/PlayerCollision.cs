@@ -13,21 +13,23 @@ public class PlayerCollision : MonoBehaviour
     private bool AttackSpeedCooldown = true;
     private bool SpeedCooldown = true;
     private bool ShieldnCooldown = true;
+    [SerializeField] private SpriteRenderer childObjspriteRender;
 
     private void Start()
     {
         statHandler = GetComponent<StatHandler>();
+        childObjspriteRender = gameObject.transform.GetComponentInChildren<SpriteRenderer>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 피격 쿨타임 구현하기
-        if(enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
+        if (enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
+            StartCoroutine(SpriteColorTime());
             enemyCollisionCooldown = false;
             GameManager.Instance.CurPlayerLife--;
             Debug.Log("충돌, 쿨다운 시작");
-            Invoke("TriggerCoolDown", 1f);
-            
+
         }
         if (collision.CompareTag("Item"))
         {
@@ -38,9 +40,23 @@ public class PlayerCollision : MonoBehaviour
     }
     private void TriggerCoolDown()
     {
+        childObjspriteRender.color = new Color32(255, 255, 255, 255);
         enemyCollisionCooldown = true;
         Debug.Log("쿨다운 해제");
     }
+    
+    private IEnumerator SpriteColorTime()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            childObjspriteRender.color = new Color32(255, 0, 0, 100);
+            yield return new WaitForSeconds(0.25f);
+            childObjspriteRender.color = new Color32(255, 200, 200, 100);
+            yield return new WaitForSeconds(0.25f);
+        }
+        TriggerCoolDown();//1초의 피격 쿨타임
+    }
+    
     private IEnumerator ApplyItemTime(ItemSO itemSO, float duration)
     {
         // 아이템 효과 적용

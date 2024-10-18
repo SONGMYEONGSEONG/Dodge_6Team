@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findPlayer: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 853766321385016874}
   enemySO: {fileID: 11400000, guid: f9938f86aca48aa4a99969abb39e767b, type: 2}
   itemObj:
   - {fileID: 6746578536009579795, guid: dfcbc2c096dcfae45997e84dd654eb7e, type: 3}

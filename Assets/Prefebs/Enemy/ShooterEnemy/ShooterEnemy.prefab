@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findPlayer: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 7286777024569303456}
   enemySO: {fileID: 11400000, guid: bedec0fa4aa0eb644ad6f30798d66acf, type: 2}
   itemObj:
   - {fileID: 6746578536009579795, guid: dfcbc2c096dcfae45997e84dd654eb7e, type: 3}

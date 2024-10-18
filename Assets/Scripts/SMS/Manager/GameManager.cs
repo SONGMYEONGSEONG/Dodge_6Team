@@ -42,14 +42,7 @@ public class GameManager : MonoBehaviour, iManager
 
     private void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(instance);
-        }
-        else
-        {
-            instance = this;
-        }
+         instance = this;
     }
 
     private void Start()

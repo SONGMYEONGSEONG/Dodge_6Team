@@ -7,6 +7,6 @@ public class ItemSO : ScriptableObject
     public float AttackSpeed;
     public int Shield;
     public float Speed;
-    public int point;
+    public int Score;
     public float CoolTime;
 }

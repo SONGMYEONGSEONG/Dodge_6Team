@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
             GetScore();
             /*20241017 - 오브젝트 풀에서 비활성화 하기에 주석처리*/
             //gameObject.SetActive(false);
-
+            DropItem();
             /*20241017 - 송명성 다 사용한 적 객체 오브젝트 풀에 반납*/
             CompletePurPose();
         }
@@ -69,16 +69,29 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
 
     }
-    private void OnDisable()
+
+    private void DropItem()
     {
         System.Random random = new System.Random();
         int itemInsRandom = random.Next(1, 101);
-        if(itemInsRandom <= 20)
+        if (itemInsRandom <= 100)
         {
             int itemListRandom = random.Next(0, itemObj.Count);
-            Instantiate(itemObj[itemListRandom],gameObject.transform.position, Quaternion.identity);
+            //오브젝트 풀링 할것 
+            Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);
         }
-
     }
+
+    //    private void OnDisable()
+    //    {
+    //        System.Random random = new System.Random();
+    //        int itemInsRandom = random.Next(1, 101);
+    //        if(itemInsRandom <= 20)
+    //        {
+    //            int itemListRandom = random.Next(0, itemObj.Count);
+    //            Instantiate(itemObj[itemListRandom],gameObject.transform.position, Quaternion.identity);
+    //        }
+
+    //    }
 
 }

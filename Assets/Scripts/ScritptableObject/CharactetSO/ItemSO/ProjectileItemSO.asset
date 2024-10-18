@@ -16,5 +16,5 @@ MonoBehaviour:
   AttackSpeed: 0
   Shield: 0
   Speed: 0
-  point: 0
+  Score: 100
   CoolTime: 3

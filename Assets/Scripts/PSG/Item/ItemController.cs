@@ -10,6 +10,7 @@ public class ItemController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            //오브젝트 푸쉬 코드 작성 
             gameObject.SetActive(false);
         }
     }

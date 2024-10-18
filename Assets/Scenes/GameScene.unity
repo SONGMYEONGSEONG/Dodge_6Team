@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 310225900433955177, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: areaPos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 310225900433955177, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: playerTr
@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 822839761533761161, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: areaPos
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 822839761533761161, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: playerTr
@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileSpawnArea
       objectReference: {fileID: 0}
+    - target: {fileID: 5599712599624338850, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5695550286420854281, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: m_TagString
       value: ObjectPush
@@ -253,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8568977260418297230, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: areaPos
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8568977260418297230, guid: 2851d2ccea759cc438ac3bbac8f17a49, type: 3}
       propertyPath: playerTr
@@ -284,6 +288,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3705075100605071748, guid: 3a7fb2a516700514e9d9be1fcbb58926, type: 3}
+      propertyPath: playerPivot
+      value: 
+      objectReference: {fileID: 968729742}
+    - target: {fileID: 3705075100605071748, guid: 3a7fb2a516700514e9d9be1fcbb58926, type: 3}
+      propertyPath: statHandler
+      value: 
+      objectReference: {fileID: 1545877550}
     - target: {fileID: 3705075100605071748, guid: 3a7fb2a516700514e9d9be1fcbb58926, type: 3}
       propertyPath: projectailObjectPool
       value: 
@@ -523,6 +535,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &968729742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1363924345626291151, guid: 3a7fb2a516700514e9d9be1fcbb58926, type: 3}
+  m_PrefabInstance: {fileID: 195098583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1545877550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8079706641515127177, guid: 3a7fb2a516700514e9d9be1fcbb58926, type: 3}
@@ -739,9 +756,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnArea
       objectReference: {fileID: 0}
+    - target: {fileID: 4350315987442111066, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4915681662763524994, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: m_LocalPosition.y
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020671491174436767, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
+      propertyPath: spawnTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5020671491174436767, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: enemySpawnManager
@@ -756,12 +781,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5677540997306052210, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
+      propertyPath: spawnTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677540997306052210, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: enemySpawnManager
       value: 
       objectReference: {fileID: 284044676}
     - target: {fileID: 6043612283764877136, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: areaPos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043612283764877136, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
+      propertyPath: spawnTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6043612283764877136, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: enemySpawnManager
@@ -774,6 +807,10 @@ PrefabInstance:
     - target: {fileID: 7972238148292391537, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: areaPos
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972238148292391537, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
+      propertyPath: spawnTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7972238148292391537, guid: 2810ddcf3c9367445999e70fc12c9f30, type: 3}
       propertyPath: enemySpawnManager

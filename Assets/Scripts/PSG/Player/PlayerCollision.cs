@@ -48,20 +48,22 @@ public class PlayerCollision : MonoBehaviour
         statHandler.AttackSpeed -= itemSO.AttackSpeed;
         statHandler.Speed += itemSO.Speed;
         statHandler.Shield += itemSO.Shield;
-        statHandler.point += itemSO.point;
 
-        Debug.Log("아이템 효과 적용. 지속 시간: " + duration + "초");
+        //점수 아이템은 게임매니저로 데이터 전달
+        GameManager.Instance.GetScore(itemSO.Score);
+        yield return null;
 
-        // 주어진 시간(duration) 동안 대기
-        yield return new WaitForSeconds(duration);
+        //Debug.Log("아이템 효과 적용. 지속 시간: " + duration + "초");
 
-        // 원래 상태로 복구
-        statHandler.ProjectilePower -= itemSO.ProjectilePower;
-        statHandler.AttackSpeed += itemSO.AttackSpeed;
-        statHandler.Speed -= itemSO.Speed;
-        statHandler.Shield -= itemSO.Shield;
-        statHandler.point -= itemSO.point;
+        //// 주어진 시간(duration) 동안 대기
+        //yield return new WaitForSeconds(duration);
 
-        Debug.Log("아이템 효과 종료.");
+        //// 원래 상태로 복구
+        //statHandler.ProjectilePower -= itemSO.ProjectilePower;
+        //statHandler.AttackSpeed += itemSO.AttackSpeed;
+        //statHandler.Speed -= itemSO.Speed;
+        //statHandler.Shield -= itemSO.Shield;
+
+        //Debug.Log("아이템 효과 종료.");
     }
 }

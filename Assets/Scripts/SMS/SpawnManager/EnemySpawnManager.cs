@@ -8,11 +8,6 @@ using UnityEngine.Pool;
 //public class EnemySpawnManager : SpawnManager<TestMonster>
 public class EnemySpawnManager : SpawnManager<EnemyController>
 {
-    //부모 클래스를 저장
-    //[SerializeField] List<TestMonster> prefabesList;
-
-    //Dictionary<string, ObjectPool<TestMonster>> objectPools = new Dictionary<string, ObjectPool<TestMonster>>();
-
     public override void Initialize()
     {
         Debug.Log(gameObject.name + "Initalize 완료!");

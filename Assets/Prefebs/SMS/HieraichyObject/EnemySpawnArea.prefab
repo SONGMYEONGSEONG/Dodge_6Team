@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6043612283764877136}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Untagged
+  m_TagString: ObjectPush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1134708081224601764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6, z: 0}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 2}
+  m_Size: {x: 24, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &6043612283764877136
 MonoBehaviour:
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 1
+  areaPos: 0
   collider: {fileID: 8968550224195777203}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 7
+  spawnTime: 4
   playersTr: {fileID: 0}
 --- !u!1 &1606904804399791542
 GameObject:
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5020671491174436767}
   m_Layer: 0
   m_Name: Up
-  m_TagString: Untagged
+  m_TagString: ObjectPush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1606904804399791542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 2}
+  m_Size: {x: 24, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &5020671491174436767
 MonoBehaviour:
@@ -188,7 +188,7 @@ MonoBehaviour:
   areaPos: 0
   collider: {fileID: 7748198098733847125}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 5
+  spawnTime: 4
   playersTr: {fileID: 0}
 --- !u!1 &4350315987442111066
 GameObject:
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7972238148292391537}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: ObjectPush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 5496132066266785839}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: -13, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -301,7 +301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 10}
+  m_Size: {x: 2, y: 16}
   m_EdgeRadius: 0
 --- !u!114 &7972238148292391537
 MonoBehaviour:
@@ -315,10 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 2
+  areaPos: 0
   collider: {fileID: 4266129043472200922}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 9
+  spawnTime: 4
   playersTr: {fileID: 0}
 --- !u!1 &8415794245189539809
 GameObject:
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5677540997306052210}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: ObjectPush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 8415794245189539809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 13, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,7 +396,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 10}
+  m_Size: {x: 2, y: 16}
   m_EdgeRadius: 0
 --- !u!114 &5677540997306052210
 MonoBehaviour:
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 3
+  areaPos: 0
   collider: {fileID: 499600788189777126}
   enemySpawnManager: {fileID: 0}
-  spawnTime: 11
+  spawnTime: 4
   playersTr: {fileID: 0}

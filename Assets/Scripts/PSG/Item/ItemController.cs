@@ -8,7 +8,7 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
 {
     public event Action<ItemController> OnEventPushObject;
 
-    [SerializeField] public ItemSO ItemSO;
+    [SerializeField] public ItemSO _ItemSO;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -9,6 +9,7 @@ using UnityEngine.Pool;
 public class EnemySpawnManager : SpawnManager<EnemyController>
 {
     [SerializeField] private ItemSpawnManager itemSpawnManager;
+    [SerializeField] private EffectManager effectManager;
     public override void Initialize()
     {
         Debug.Log(gameObject.name + "Initalize 완료!");
@@ -35,6 +36,7 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
                 gameObj.OnEventDieObject += GameManager.Instance.GetScore;
                 gameObj.OnEventPushObject += PushObject;
                 gameObj.OnEventDropItem += itemSpawnManager.RandomPoolObject;
+                gameObj.OnEventDieEffectObject += effectManager.PoolObject;
                 objectPool.InitPushObject(gameObj);
             }
 

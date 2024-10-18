@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     /*20241017 - �۸��� ������Ʈ Ǯ���� ���� �̺�Ʈ �߰�*/
     public event Action<EnemyController> OnEventPushObject;
     public event Action<EnemyController> OnEventDieObject;
+    public event Func<string,Vector2, EffectController> OnEventDieEffectObject;
     public event Func<Vector2, ItemController> OnEventDropItem;
 
     protected void CompletePurPose()
@@ -62,13 +63,12 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         {
             CompletePurPose();
         }
-
-
     }
 
     private void OnDieEffect()
     {
-        GameObject explosionIns = Instantiate(explosionObj, gameObject.transform.position, Quaternion.identity);
+        EffectController effect = OnEventDieEffectObject?.Invoke("EffectExplosion", gameObject.transform.position);
+        //GameObject explosionIns = Instantiate(explosionObj, , Quaternion.identity);
     }
 
     public void DropItem()

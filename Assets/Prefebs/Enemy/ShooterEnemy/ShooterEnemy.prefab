@@ -166,6 +166,12 @@ MonoBehaviour:
   findPlayer: {fileID: 0}
   rb: {fileID: 0}
   enemySO: {fileID: 11400000, guid: bedec0fa4aa0eb644ad6f30798d66acf, type: 2}
+  itemObj:
+  - {fileID: 6746578536009579795, guid: dfcbc2c096dcfae45997e84dd654eb7e, type: 3}
+  - {fileID: 4606238360280745753, guid: ec454ae264645e34baf706303df3c357, type: 3}
+  - {fileID: 4888008447813216290, guid: 02e49acbf4382d840b23f27a1dcdede3, type: 3}
+  - {fileID: 3343091203498433642, guid: 42434535b39e1664f85d59f30f31d6b5, type: 3}
+  - {fileID: 812824274025193936, guid: ccc76b8465c3ecd4fb13dc6481ba2bb3, type: 3}
 --- !u!50 &7286777024569303456
 Rigidbody2D:
   serializedVersion: 4

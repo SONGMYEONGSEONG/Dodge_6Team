@@ -35,6 +35,7 @@ public class ProjectileSpawnArea : MonoBehaviour
         }
 
         UI_StartBtn.OnEventGameStart += GameStart;
+        GameManager.Instance.OnEventGameOver += GameOver;
     }
 
     //Up Aread에서만 랜덤생성 -Test
@@ -43,7 +44,10 @@ public class ProjectileSpawnArea : MonoBehaviour
         halfWidth = collider.size.x * 0.5f;
         halfHeight = collider.size.y * 0.5f;
     }
-
+    public void GameOver()
+    {
+        gameObject.SetActive(false);
+    }
     private void GameStart()
     {
         if (RandomSpawnCoroutin == null)

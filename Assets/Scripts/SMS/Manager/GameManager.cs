@@ -36,9 +36,11 @@ public class GameManager : MonoBehaviour, iManager
     public int CurPlayerLife { get { return curPlayerLife; } set { curPlayerLife = value; } }
 
     private bool isPlaying;
+
+
     public bool IsPlaying { get { return isPlaying; } set { isPlaying = value; } }
     public event Action OnEventGameOver;
-
+    
     private void Awake()
     {
          instance = this;
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour, iManager
 
     public void Initialize()
     {
-       
+        Time.timeScale = 1.0f;
         curGameTime = 0.0f;
         curGameScore = 0;
         curPlayerLife = 3;
@@ -67,7 +69,6 @@ public class GameManager : MonoBehaviour, iManager
 
             GetLife(curPlayerLife);
         }
-
     }
 
     //점수를 획득 하는 메서드, 이벤트로 구성 할것 
@@ -97,8 +98,14 @@ public class GameManager : MonoBehaviour, iManager
         {
             isPlaying = false;
             OnEventGameOver ?.Invoke();
+            Invoke("TimeStop", 0.5f);
         }
 
         uI_CurScoreAndTimeAndLife.LifeDisplay(life);
+    }
+
+    private void TimeStop()
+    {
+        Time.timeScale = 0.0f;
     }
 }

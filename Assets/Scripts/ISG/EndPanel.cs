@@ -73,7 +73,7 @@ public class EndPanel : MonoBehaviour
     // 최종 시간을 업데이트하는 private 메서드
     void UpdateFinalTime()
     {
-        finalTimeText.text = GameManager.Instance.CurGameTime.ToString();
+        finalTimeText.text = GameManager.Instance.CurGameTime.ToString("N2");
         //// 게임 진행 시간 계산
         //float playTime = Time.time - startTime;
         // 시간을 분:초 형식으로 변환

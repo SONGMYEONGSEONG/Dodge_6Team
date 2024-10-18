@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBulletSmall
   m_EditorClassIdentifier: 
   bulletName: PlayerBulletSmall
-  bulletSpeed: 1
+  bulletSpeed: 50
   bulletSprite: {fileID: 21300010, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   PoolCount: 500
   bulletDamage: 0

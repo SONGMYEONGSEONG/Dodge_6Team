@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour, iManager
 
     private bool isPlaying;
     public bool IsPlaying { get { return isPlaying; } set { isPlaying = value; } }
+    public event Action OnEventGameOver;
 
     private void Awake()
     {
@@ -73,25 +75,7 @@ public class GameManager : MonoBehaviour, iManager
 
             GetLife(curPlayerLife);
         }
-        /*
-        if(player.isDeath)
-        {
-            curPlayerLife--;
 
-           if(curPlayerLife <=0)
-            {
-                //TODO CODE : UI 결과창(점수,버틴시간) 팝업창 띄움
-                
-            
-                SceneManager.LoadScene("GameScene");
-            }
-        }
-        else
-        {
-            curGameTime += Time.deltaTime;
-            
-        }
-        */
     }
 
     //점수를 획득 하는 메서드, 이벤트로 구성 할것 
@@ -107,6 +91,12 @@ public class GameManager : MonoBehaviour, iManager
     }
     public void GetLife(int life)
     {
-        uI_CurScoreAndTimeAndLife.LifeDisplay(curPlayerLife);
+        if(life <= 0)
+        {
+            isPlaying = false;
+            OnEventGameOver ?.Invoke();
+        }
+
+        uI_CurScoreAndTimeAndLife.LifeDisplay(life);
     }
 }

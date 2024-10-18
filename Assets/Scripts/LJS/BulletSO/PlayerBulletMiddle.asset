@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBulletMiddle
   m_EditorClassIdentifier: 
   bulletName: PlayerBulletMiddle
-  bulletSpeed: 1
+  bulletSpeed: 50
   bulletSprite: {fileID: 21300012, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   PoolCount: 300
   bulletDamage: 0

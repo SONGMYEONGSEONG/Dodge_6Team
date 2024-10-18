@@ -4,9 +4,28 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : TopDownController
 {
     private Camera camera;
+
+    InputActionAsset inputAction;
+
     private void Awake()
     {
         camera = Camera.main;
+        inputAction = GetComponent<PlayerInput>().actions;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.OnEventGameOver += OnDisEnablePlayerInput;
+    }
+
+    public void OnEnablePlayerInput()
+    {
+        inputAction.FindActionMap("PlayerAction").Enable();
+    }
+
+    public void OnDisEnablePlayerInput()
+    {
+        inputAction.FindActionMap("PlayerAction").Disable();
     }
 
     public void OnMove(InputValue _value)

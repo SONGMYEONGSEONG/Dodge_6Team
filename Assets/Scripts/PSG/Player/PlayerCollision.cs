@@ -24,6 +24,7 @@ public class PlayerCollision : MonoBehaviour
         if(enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
             enemyCollisionCooldown = false;
+            GameManager.Instance.CurPlayerLife--;
             Debug.Log("충돌, 쿨다운 시작");
             Invoke("TriggerCoolDown", 1f);
             

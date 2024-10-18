@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemyBulletMeddle
   m_EditorClassIdentifier: 
   bulletName: EnemyBulletMeddle
-  bulletSpeed: 100
+  bulletSpeed: 5
   bulletSprite: {fileID: 21300024, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   PoolCount: 500

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Bullet
   - Item
+  - PlayerBullet
+  - ObjectPush
   layers:
   - Default
   - TransparentFX

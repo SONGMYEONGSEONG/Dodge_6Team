@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5723627709722154641}
   - component: {fileID: 7477353104123312101}
   - component: {fileID: 3744147062815526875}
-  - component: {fileID: 7863579067289544604}
+  - component: {fileID: -6280272656881634232}
   m_Layer: 0
-  m_Name: EnemyFireballBB
-  m_TagString: Bullet
+  m_Name: PlayerFireballBB
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300026, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fbf368fe84e2c489a4d044303e5217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBulletSO: {fileID: 11400000, guid: 691de33d43f3ee04daf1d1bba0d7fb14, type: 2}
+  defaultBulletSO: {fileID: 11400000, guid: da30a0f03d94a3e45bdfb314a07fabb3, type: 2}
 --- !u!50 &3744147062815526875
 Rigidbody2D:
   serializedVersion: 4
@@ -127,7 +127,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7863579067289544604
+--- !u!58 &-6280272656881634232
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

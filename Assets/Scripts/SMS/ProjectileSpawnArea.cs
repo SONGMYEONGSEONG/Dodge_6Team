@@ -82,7 +82,7 @@ public class ProjectileSpawnArea : MonoBehaviour
             //오브젝트 이름 문자열에 투사체오브젝트 넣어도 됨
             //오브젝트 이름은 지금 테스트 용으로 들어간상태
             //테스트 코드
-            Bullet obj = projectailSpawnManager.PoolObject("EnemyBulletSmall", pos);
+            Bullet obj;
             int spawnRandNum = UnityEngine.Random.Range(0, 100);
             if (spawnRandNum > 89) //10% 확률
             {

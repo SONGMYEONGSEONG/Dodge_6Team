@@ -38,9 +38,9 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void EnemyMove(GameObject _player,float speed)
+    public void EnemyMove(GameObject _player, float speed)
     {
-        
+
         Vector3 direction = (_player.transform.position - transform.position).normalized;
         rb.velocity = direction * speed;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
@@ -49,17 +49,23 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.CompareTag("PlayerBullet"))
         {
             //점수 계산
             GetScore();
-
-            collision.gameObject.SetActive(false);
             /*20241017 - 오브젝트 풀에서 비활성화 하기에 주석처리*/
             //gameObject.SetActive(false);
 
             /*20241017 - 송명성 다 사용한 적 객체 오브젝트 풀에 반납*/
             CompletePurPose();
         }
+        //화면 밖으로 나갈경우 오브젝트 푸쉬
+        //플레이어와 자신 오브젝트 반납
+        else if (collision.CompareTag("Player") || collision.CompareTag("ObjectPush"))
+        {
+            CompletePurPose();
+        }
+
+
     }
 }

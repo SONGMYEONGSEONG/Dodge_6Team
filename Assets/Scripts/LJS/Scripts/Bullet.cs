@@ -33,16 +33,11 @@ public class Bullet : MonoBehaviour, iPoolable<Bullet>
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void OnMove()
-    {
-        // 총알이 앞으로 나아가는 코드
-        rigid.velocity = (transform.up * defaultBulletSO.bulletSpeed * Time.deltaTime);
-    }
 
     public void OnMove(Vector2 playerDir)
     {
         // 총알이 앞으로 나아가는 코드
-        rigid.velocity = (playerDir * defaultBulletSO.bulletSpeed * Time.deltaTime);
+        rigid.AddForce(playerDir * defaultBulletSO.bulletSpeed,ForceMode2D.Impulse);
     }
 
     protected void CompletePurPose()
@@ -51,6 +46,9 @@ public class Bullet : MonoBehaviour, iPoolable<Bullet>
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CompletePurPose();
+        if (collision.CompareTag("Player") || collision.CompareTag("ObjectPush"))
+        {
+            CompletePurPose();
+        }
     }
 }

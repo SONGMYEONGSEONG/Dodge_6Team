@@ -6,6 +6,7 @@ public class TopDownShooting : MonoBehaviour
     private TopDownController controller;
 
     [SerializeField] private Transform projectileSpawnPosition;
+    [SerializeField] private ProjectailSpawnManager projectailObjectPool;
     private Vector2 aimDirection = Vector2.right;
 
     public GameObject bulletPrefab;
@@ -13,6 +14,7 @@ public class TopDownShooting : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<TopDownController>();
+
     }
     private void Start()
     {
@@ -33,6 +35,10 @@ public class TopDownShooting : MonoBehaviour
 
     private void creatProjectile()
     {
-        Instantiate(bulletPrefab, projectileSpawnPosition.position, Quaternion.identity);
+        //Instantiate(bulletPrefab, projectileSpawnPosition.position, Quaternion.identity);
+
+        Bullet bullet = projectailObjectPool.PoolObject("PlayerBulletSmall", projectileSpawnPosition.position);
+
+        bullet.OnMove(projectileSpawnPosition.up);
     }
 }

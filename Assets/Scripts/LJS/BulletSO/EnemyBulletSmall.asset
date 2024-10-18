@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemyBulletSmall
   m_EditorClassIdentifier: 
   bulletName: EnemyBulletSmall
-  bulletSpeed: 150
+  bulletSpeed: 5
   bulletSprite: {fileID: 21300022, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   PoolCount: 1200

@@ -24,7 +24,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public T PoolObject(Vector2 pos)
     {
-        if (PoolQueue.Count <= 0)
+        if (PoolQueue.Count <= 5)
         {
             Debug.Log(typeof(T).Name + "¿ÀºêÁ§Æ® °¹¼ö ºÎÁ·!");
 
@@ -41,6 +41,9 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         pushObj.gameObject.SetActive(false);
         PoolQueue.Enqueue(pushObj);
+        //Debug.Log("ÃÑ¾Ë Å¥ °¹¼ö"+PoolQueue.Count);
     }
+
+
 
 }

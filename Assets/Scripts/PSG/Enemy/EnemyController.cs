@@ -73,16 +73,14 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     public void DropItem()
     {
-        System.Random random = new System.Random();
-        int itemInsRandom = random.Next(1, 101);
-        if (itemInsRandom <= 100)
+        if (OnEventDropItem?.Invoke(transform.position) == null)
         {
-            OnEventDropItem?.Invoke(transform.position);
-            //itemSpawnManager.RandomPoolObject(transform.position);
-            //int itemListRandom = random.Next(0, );
-            ////������Ʈ Ǯ�� �Ұ� 
-            //Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);
+            return;
         }
+        //itemSpawnManager.RandomPoolObject(transform.position);
+        //int itemListRandom = random.Next(0, );
+        ////������Ʈ Ǯ�� �Ұ� 
+        //Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);  
     }
 
 

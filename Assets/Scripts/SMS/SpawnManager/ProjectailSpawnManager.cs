@@ -28,9 +28,9 @@ public class ProjectailSpawnManager : SpawnManager<Bullet>
 
             objectPools.Add(prefab.defaultBulletSO.bulletName, objectPool);
         }
-
         Initialize();
     }
+
 
 
     public Bullet PoolObject(string objName, Vector2 spawnPos)
@@ -40,7 +40,6 @@ public class ProjectailSpawnManager : SpawnManager<Bullet>
 
     public Bullet PoolObject(Bullet testProjectile, Vector2 spawnPos)
     {
-
         return objectPools[testProjectile.defaultBulletSO.bulletName].PoolObject(spawnPos);
     }
 

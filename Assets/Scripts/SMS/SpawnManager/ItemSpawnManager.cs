@@ -8,7 +8,7 @@ using UnityEngine.Pool;
 //public class EnemySpawnManager : SpawnManager<TestMonster>
 public class ItemSpawnManager : SpawnManager<ItemController>
 {
-    
+    [SerializeField] private float itemSpawnPercent = 80.0f;
 
     public override void Initialize()
     {
@@ -50,10 +50,16 @@ public class ItemSpawnManager : SpawnManager<ItemController>
     }
     public ItemController RandomPoolObject(Vector2 spawnPos)
     {
-        int index = UnityEngine.Random.Range(0, prefabesList.Count);
-        string itemName = prefabesList[index].ItemSO.ItemName;
+        System.Random random = new System.Random();
+        int itemInsRandom = random.Next(1, 101);
+        if (itemInsRandom <= itemSpawnPercent)
+        {
+            int index = UnityEngine.Random.Range(0, prefabesList.Count);
+            string itemName = prefabesList[index].ItemSO.ItemName;
+            return objectPools[itemName].PoolObject(spawnPos);
+        }
 
-        return objectPools[itemName].PoolObject(spawnPos);
+        return null;
     }
 
     public ItemController PoolObject(ItemController item, Vector2 spawnPos)

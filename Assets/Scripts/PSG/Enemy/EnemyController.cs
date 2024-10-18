@@ -3,25 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*20241017 - ¼Û¸í¼º ÀÎÅÍÆäÀÌ½º Ãß°¡*/
+/*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ß°ï¿½*/
 //public class EnemyController : MonoBehaviour
 public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 {
     [SerializeField] protected GameObject findPlayer;
+    [SerializeField] protected GameObject explosionObj;
+
     protected GameObject enemyspriteRotation;
     public Rigidbody2D rb;
 
-    /*20241017 - ¼Û¸í¼º À§Ä¡ º¯°æ ShooterEnemyController -> EnemyController*/
-    /*20241017 - ¼Û¸í¼º Á¢±ÙÁ¦ÇÑÀÚ º¯°æ private -> protected*/
+    /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ShooterEnemyController -> EnemyController*/
+    /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ private -> protected*/
     [SerializeField] protected EnemySO enemySO;
-    /*20241017 - ¼Û¸í¼º Á¢±ÙÇÒ¼ö ÀÖ°Ô ÇÁ·ÎÆÛÆ¼ ¼±¾ð*/
+    /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½*/
     public EnemySO EnemySO { get { return enemySO; } }
 
-    /*20241017 - ¼Û¸í¼º ¿ÀºêÁ§Æ® Ç®¸µÀ» À§ÇÑ ÀÌº¥Æ® Ãß°¡*/
+    /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½*/
     public event Action<EnemyController> OnEventPushObject;
     public event Action<int> OnEventDieObject;
 
-    [SerializeField] List<GameObject> itemObj = new List<GameObject>();
     protected void CompletePurPose()
     {
         OnEventPushObject?.Invoke(this);
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     {
         OnEventDieObject?.Invoke(EnemySO.Score);
     }
-    /*20241017 - ¼Û¸í¼º ¿ÀºêÁ§Æ® Ç®¸µÀ» À§ÇÑ ÀÌº¥Æ® Ãß°¡*/
+    /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½*/
 
     public void Start()
     {
@@ -52,16 +53,16 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            //Á¡¼ö °è»ê
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             GetScore();
-            /*20241017 - ¿ÀºêÁ§Æ® Ç®¿¡¼­ ºñÈ°¼ºÈ­ ÇÏ±â¿¡ ÁÖ¼®Ã³¸®*/
+            /*20241017 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½Ï±â¿¡ ï¿½Ö¼ï¿½Ã³ï¿½ï¿½*/
             //gameObject.SetActive(false);
             DropItem();
-            /*20241017 - ¼Û¸í¼º ´Ù »ç¿ëÇÑ Àû °´Ã¼ ¿ÀºêÁ§Æ® Ç®¿¡ ¹Ý³³*/
+            /*20241017 - ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ ï¿½Ý³ï¿½*/
             CompletePurPose();
         }
-        //È­¸é ¹ÛÀ¸·Î ³ª°¥°æ¿ì ¿ÀºêÁ§Æ® Çª½¬
-        //ÇÃ·¹ÀÌ¾î¿Í ÀÚ½Å ¿ÀºêÁ§Æ® ¹Ý³³
+        //È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Çªï¿½ï¿½
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ý³ï¿½
         else if (collision.CompareTag("Player") || collision.CompareTag("ObjectPush"))
         {
             CompletePurPose();
@@ -77,9 +78,10 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         if (itemInsRandom <= 100)
         {
             int itemListRandom = random.Next(0, itemObj.Count);
-            //¿ÀºêÁ§Æ® Ç®¸µ ÇÒ°Í 
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½ ï¿½Ò°ï¿½ 
             Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);
         }
+        GameObject explosionIns = Instantiate(explosionObj, gameObject.transform.position, Quaternion.identity);
     }
 
     //    private void OnDisable()

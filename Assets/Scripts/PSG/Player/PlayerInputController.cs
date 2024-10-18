@@ -25,6 +25,7 @@ public class PlayerInputController : TopDownController
 
     public void OnFire(InputValue _value)
     {
-        isAttacking = _value.isPressed;
+        isAttacking = _value.isPressed; 
+        Debug.Log(isAttacking);
     }
 }

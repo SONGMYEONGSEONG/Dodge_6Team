@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findPlayer: {fileID: 0}
+  explosionObj: {fileID: 2765972656174537876, guid: efbff516606fff742a1b3a1cd5d72cb9, type: 3}
   rb: {fileID: 0}
   enemySO: {fileID: 11400000, guid: f9938f86aca48aa4a99969abb39e767b, type: 2}
   itemObj:

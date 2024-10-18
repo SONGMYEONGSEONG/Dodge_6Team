@@ -45,7 +45,7 @@ public class TopDownController : MonoBehaviour
 
     private void CallAttackEvent()
     {
-        OnAttackEvent.Invoke();
-        isAttacking = false;
+        OnAttackEvent?.Invoke();
+        //isAttacking = false;
     }
 }

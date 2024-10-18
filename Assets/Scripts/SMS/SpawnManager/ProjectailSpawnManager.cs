@@ -19,7 +19,6 @@ public class ProjectailSpawnManager : SpawnManager<Bullet>
 
             ObjectPool<Bullet> objectPool = new ObjectPool<Bullet>();
 
-
             for (int i = 0; i < prefab.defaultBulletSO.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);

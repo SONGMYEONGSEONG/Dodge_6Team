@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour, iManager
                     obj.name = typeof(GameManager).Name + "Auto";
                     instance = obj.AddComponent<GameManager>();
                 }
-
             }
 
             return instance;
@@ -75,6 +74,16 @@ public class GameManager : MonoBehaviour, iManager
     public void GetScore(int score)
     {
         curGameScore += score;
+        uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
+    }
+    public void GetScore(EnemyController enemy)
+    {
+        curGameScore = enemy.EnemySO.Score;
+        uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
+    }
+    public void GetScore(ItemController item)
+    {
+        curGameScore = item.ItemSO.Score;
         uI_CurScoreAndTimeAndLife.ScoreDisplay(curGameScore);
     }
     public void GetTime(int time)

@@ -6,9 +6,10 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 //public class EnemySpawnManager : SpawnManager<TestMonster>
-public class EnemySpawnManager : SpawnManager<EnemyController>
+public class ItemSpawnManager : SpawnManager<ItemController>
 {
-    [SerializeField] private ItemSpawnManager itemSpawnManager;
+    
+
     public override void Initialize()
     {
         Debug.Log(gameObject.name + "Initalize 완료!");
@@ -17,49 +18,54 @@ public class EnemySpawnManager : SpawnManager<EnemyController>
     private void Awake()
     {
         //TestMonster gameObj;
-        EnemyController gameObj;
+        ItemController gameObj;
 
         //foreach (TestMonster prefab in prefabesList)
-        foreach (EnemyController prefab in prefabesList)
+        foreach (ItemController prefab in prefabesList)
         {
             GameObject poolContainer = new GameObject("Pool_Container_" + prefab.name);
 
             //ObjectPool<TestMonster> objectPool = new ObjectPool<TestMonster>();
-            ObjectPool<EnemyController> objectPool = new ObjectPool<EnemyController>();
+            ObjectPool<ItemController> objectPool = new ObjectPool<ItemController>();
 
             //for (int i = 0; i < prefab.PoolCount; i++)
-            for (int i = 0; i < prefab.EnemySO.PoolCount; i++)
+            for (int i = 0; i < prefab.ItemSO.PoolCount; i++)
             {
                 gameObj = Instantiate(prefab, poolContainer.transform);
-                //gameObj.OnEventPushObject += GameManager.Instance.GetScore;
-                gameObj.OnEventDieObject += GameManager.Instance.GetScore;
+                gameObj.OnEventPushObject += GameManager.Instance.GetScore;
                 gameObj.OnEventPushObject += PushObject;
-                gameObj.OnEventDropItem += itemSpawnManager.RandomPoolObject;
                 objectPool.InitPushObject(gameObj);
             }
 
             //objectPools.Add(prefab.monsterName, objectPool);
-            objectPools.Add(prefab.EnemySO.enemyName, objectPool);
+            objectPools.Add(prefab.ItemSO.ItemName, objectPool);
         }
 
         Initialize();
     }
 
-    public EnemyController PoolObject(string objName, Vector2 spawnPos)
+    public ItemController PoolObject(string objName, Vector2 spawnPos)
     {
         return objectPools[objName].PoolObject(spawnPos);
     }
-
-    public EnemyController PoolObject(EnemyController enemy, Vector2 spawnPos)
+    public ItemController RandomPoolObject(Vector2 spawnPos)
     {
-        return objectPools[enemy.EnemySO.enemyName].PoolObject(spawnPos);
+        int index = UnityEngine.Random.Range(0, prefabesList.Count);
+        string itemName = prefabesList[index].ItemSO.ItemName;
+
+        return objectPools[itemName].PoolObject(spawnPos);
+    }
+
+    public ItemController PoolObject(ItemController item, Vector2 spawnPos)
+    {
+        return objectPools[item.ItemSO.ItemName].PoolObject(spawnPos);
     }
 
     //private void PushObject(TestMonster testmonster)
-    private void PushObject(EnemyController enemy)
+    private void PushObject(ItemController item)
     {
         //objectPools[testmonster.monsterName].PushObject(testmonster);
-        objectPools[enemy.EnemySO.enemyName].PushObject(enemy);
+        objectPools[item.ItemSO.ItemName].PushObject(item);
     }
 
 }

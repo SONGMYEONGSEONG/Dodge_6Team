@@ -203,4 +203,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1c6cfc1ae9c7e4dbdbd52c8cefdfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSO: {fileID: 11400000, guid: 5bfb12b1ef44a77479c6a68e086c7545, type: 2}
+  ItemSO: {fileID: 11400000, guid: 5bfb12b1ef44a77479c6a68e086c7545, type: 2}

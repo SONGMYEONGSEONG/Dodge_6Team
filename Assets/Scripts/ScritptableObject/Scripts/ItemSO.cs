@@ -3,6 +3,8 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     [Header("Item Info")]
+    public string ItemName;
+    public int PoolCount;
     public int ProjectilePower;
     public float AttackSpeed;
     public int Shield;

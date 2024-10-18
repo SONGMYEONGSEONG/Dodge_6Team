@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d353c960afcc8014fa0a9b092f10a0f1, type: 3}
   m_Name: ScoreItemSO
   m_EditorClassIdentifier: 
+  ItemName: Item_Score
+  PoolCount: 10
   ProjectilePower: 0
   AttackSpeed: 0
   Shield: 0

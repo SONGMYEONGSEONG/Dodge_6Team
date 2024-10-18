@@ -8,22 +8,6 @@ public class ObjectPool<T> where T : MonoBehaviour
 {
     public Queue<T> PoolQueue = new Queue<T>();
 
-    //public void Initailize(int poolCount, )
-    //{
-    //    GameObject poolContainer = new GameObject("Pool_Container_" + poolObject.name);
-    //    gameObj = Instantiate(poolObject, poolContainer.transform);
-
-    //    T gameObj;
-    //    for (int i = 0; i < poolCount; i++)
-    //    {
-
-    //        gameObj.gameObject.SetActive(false);
-
-    //        PoolQueue.Enqueue(gameObj);
-    //    }
-    //}
-
-
     public bool InitPushObject(T poolObject)
     {
         if (poolObject == null) 
@@ -57,7 +41,6 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         pushObj.gameObject.SetActive(false);
         PoolQueue.Enqueue(pushObj);
-
     }
 
 }

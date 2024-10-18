@@ -21,17 +21,17 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     /*20241017 - �۸��� ������Ʈ Ǯ���� ���� �̺�Ʈ �߰�*/
     public event Action<EnemyController> OnEventPushObject;
-    public event Action<int> OnEventDieObject;
+    public event Action<EnemyController> OnEventDieObject;
+    public event Func<Vector2, ItemController> OnEventDropItem;
 
     protected void CompletePurPose()
     {
         OnEventPushObject?.Invoke(this);
     }
-    protected void GetScore()
+    protected void EnemyDie()
     {
-        OnEventDieObject?.Invoke(EnemySO.Score);
+        OnEventDieObject?.Invoke(this);
     }
-    /*20241017 - �۸��� ������Ʈ Ǯ���� ���� �̺�Ʈ �߰�*/
 
     public void Start()
     {
@@ -53,16 +53,11 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            //���� ���
-            GetScore();
-            /*20241017 - ������Ʈ Ǯ���� ��Ȱ��ȭ �ϱ⿡ �ּ�ó��*/
-            //gameObject.SetActive(false);
-            DropItem();
-            /*20241017 - �۸��� �� ����� �� ��ü ������Ʈ Ǯ�� �ݳ�*/
+            OnDieEffect();
+            Invoke("DropItem", 0.1f);
+            EnemyDie();
             CompletePurPose();
         }
-        //ȭ�� ������ ������� ������Ʈ Ǫ��
-        //�÷��̾�� �ڽ� ������Ʈ �ݳ�
         else if (collision.CompareTag("Player") || collision.CompareTag("ObjectPush"))
         {
             CompletePurPose();
@@ -71,29 +66,24 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     }
 
-    private void DropItem()
+    private void OnDieEffect()
+    {
+        GameObject explosionIns = Instantiate(explosionObj, gameObject.transform.position, Quaternion.identity);
+    }
+
+    public void DropItem()
     {
         System.Random random = new System.Random();
         int itemInsRandom = random.Next(1, 101);
         if (itemInsRandom <= 100)
         {
-            int itemListRandom = random.Next(0, itemObj.Count);
-            //������Ʈ Ǯ�� �Ұ� 
-            Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);
+            OnEventDropItem?.Invoke(transform.position);
+            //itemSpawnManager.RandomPoolObject(transform.position);
+            //int itemListRandom = random.Next(0, );
+            ////������Ʈ Ǯ�� �Ұ� 
+            //Instantiate(itemObj[itemListRandom], gameObject.transform.position, Quaternion.identity);
         }
-        GameObject explosionIns = Instantiate(explosionObj, gameObject.transform.position, Quaternion.identity);
     }
 
-    //    private void OnDisable()
-    //    {
-    //        System.Random random = new System.Random();
-    //        int itemInsRandom = random.Next(1, 101);
-    //        if(itemInsRandom <= 20)
-    //        {
-    //            int itemListRandom = random.Next(0, itemObj.Count);
-    //            Instantiate(itemObj[itemListRandom],gameObject.transform.position, Quaternion.identity);
-    //        }
-
-    //    }
 
 }

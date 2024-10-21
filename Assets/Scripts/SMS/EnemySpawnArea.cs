@@ -59,6 +59,12 @@ public class EnemySpawnArea : MonoBehaviour
         GameManager.Instance.OnEventGameOver += GameOver;
     }
 
+    private void OnDestroy()
+    {
+        UI_StartBtn.OnEventGameStart -= GameStart;
+        GameManager.Instance.OnEventGameOver -= GameOver;
+    }
+
     //Up Aread에서만 랜덤생성 -Test
     private void Start()
     {

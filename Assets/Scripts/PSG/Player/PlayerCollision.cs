@@ -63,7 +63,7 @@ public class PlayerCollision : MonoBehaviour
         statHandler.ProjectilePower += itemSO.ProjectilePower;
         statHandler.AttackSpeed -= itemSO.AttackSpeed;
         statHandler.Speed += itemSO.Speed;
-        statHandler.Shield += itemSO.Shield;
+        GameManager.Instance.CurPlayerLife += itemSO.Shield;
 
         //점수 아이템은 게임매니저로 데이터 전달
         GameManager.Instance.GetScore(itemSO.Score);

@@ -46,7 +46,6 @@ public class Bullet : MonoBehaviour, iPoolable<Bullet>
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //레이어로 변경할것 
         if (gameObject.CompareTag("PlayerBullet"))
         {
             if (collision.CompareTag("Enemy") || collision.CompareTag("ObjectPush"))

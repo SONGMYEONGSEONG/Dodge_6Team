@@ -37,14 +37,10 @@ public class TopDownShooting : MonoBehaviour
     private void OnShoot()
     {
         creatProjectile();
-
     }
 
     private void creatProjectile()
     {
-        //Instantiate(bulletPrefab, projectileSpawnPosition.position, Quaternion.identity);
-
-
         switch (statHandler.ProjectilePower % 2 == 0)
         {
             case true://짝수
@@ -60,9 +56,6 @@ public class TopDownShooting : MonoBehaviour
                 creatProjectileMulti(statHandler.ProjectilePower, 0);
                 break;
         }
-
-
-
     }
 
     private void creatProjectileMulti(int projectilePower, float pos)
@@ -89,10 +82,11 @@ public class TopDownShooting : MonoBehaviour
 
     private Vector2 GetProjectileMoveDir(float playerRotZ, float dirAngle,int index)
     {
-        float resultLeftAngle = (playerRotZ + (dirAngle * (index + 1)) + 90.0f) * Mathf.Deg2Rad;
+        float resultAngle = (playerRotZ + (dirAngle * (index + 1)) + 90.0f) * Mathf.Deg2Rad;
 
-        float x = Mathf.Cos(resultLeftAngle);
-        float y = Mathf.Sin(resultLeftAngle);
+
+        float x = Mathf.Cos(resultAngle);
+        float y = Mathf.Sin(resultAngle);
 
         return new Vector2(x, y).normalized;
     }

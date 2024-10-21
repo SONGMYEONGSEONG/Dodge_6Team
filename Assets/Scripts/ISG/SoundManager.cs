@@ -83,4 +83,10 @@ public class SoundManager : MonoBehaviour
             break;
         }
     }
+
+    public void PlayGameOverSound()
+    {
+        PlaySFX(Sfx.Gameover);
+        PlayBGM(false);
+    }
 }

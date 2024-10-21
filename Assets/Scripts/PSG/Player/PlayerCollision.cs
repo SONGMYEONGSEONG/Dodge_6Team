@@ -15,10 +15,12 @@ public class PlayerCollision : MonoBehaviour
     private bool ShieldnCooldown = true;
     [SerializeField] private SpriteRenderer childObjspriteRender;
 
+    private Color originColor;
     private void Start()
     {
         statHandler = GetComponent<StatHandler>();
         childObjspriteRender = gameObject.transform.GetComponentInChildren<SpriteRenderer>();
+        originColor = childObjspriteRender.color;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,7 +42,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void TriggerCoolDown()
     {
-        childObjspriteRender.color = new Color32(255, 255, 255, 255);
+        childObjspriteRender.color = originColor;
         enemyCollisionCooldown = true;
         Debug.Log("Äð´Ù¿î ÇØÁ¦");
     }

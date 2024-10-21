@@ -56,6 +56,7 @@ public class TopDownShooting : MonoBehaviour
                 creatProjectileMulti(statHandler.ProjectilePower, 0);
                 break;
         }
+        SoundManager.Instance.PlaySFX(SoundManager.Sfx.Fire);
     }
 
     private void creatProjectileMulti(int projectilePower, float pos)

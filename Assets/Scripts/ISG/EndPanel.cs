@@ -65,6 +65,7 @@ public class EndPanel : MonoBehaviour
     // UI를 업데이트하는 private 메서드
     void UpdateUI()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Sfx.Gameover);
         UpdateFinalTime();
         UpdateFinalScore();
         UpdateBestScore();

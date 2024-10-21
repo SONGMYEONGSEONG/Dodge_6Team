@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SoundManager;
 
 public class SoundManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class SoundManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
 
-    public enum Sfx { Collision,  Dead, Hit, Item, Select, Gameover, }
+    public enum Sfx { Select, Fire, Hit, Item, Gameover ,EnemyDie}
 
     private void Awake()
     {
@@ -65,22 +66,24 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(Sfx sfx)
     {
-        for (int index = 0; index < sfxPlayers.Length; index++)
-        {
-            int loopIndex = (index + channelIndex) % sfxPlayers.Length;
+        sfxPlayers[(int)sfx].clip = sfxClips[(int)sfx];
+        sfxPlayers[(int)sfx].PlayOneShot(sfxPlayers[(int)sfx].clip);
+        //    for (int index = 0; index < sfxPlayers.Length; index++)
+        //    {
+        //        int loopIndex = (index + channelIndex) % sfxPlayers.Length;
 
-            if (sfxPlayers[loopIndex].isPlaying)
-                continue;
+        //        if (sfxPlayers[loopIndex].isPlaying)
+        //            continue;
 
-            int ranIndex = 0;
-            if (sfx == Sfx.Hit)
-            {
-                ranIndex = Random.Range(0, 2);
-            }
-            channelIndex = loopIndex;
-            sfxPlayers[loopIndex].clip = sfxClips[(int)sfx];
-            sfxPlayers[loopIndex].Play();
-            break;
-        }
+        //        int ranIndex = 0;
+        //        if (sfx == Sfx.Hit)
+        //        {
+        //            ranIndex = Random.Range(0, 2);
+        //        }
+        //        channelIndex = loopIndex;
+        //        sfxPlayers[loopIndex].clip = sfxClips[(int)sfx];
+        //        sfxPlayers[loopIndex].Play();
+        //        break;
+        //    }
     }
 }

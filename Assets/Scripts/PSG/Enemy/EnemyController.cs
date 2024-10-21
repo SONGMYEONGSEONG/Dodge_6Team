@@ -77,6 +77,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     private void OnDieEffect()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Sfx.EnemyDie);
         EffectController effect = OnEventDieEffectObject?.Invoke("EffectExplosion", gameObject.transform.position);
         //GameObject explosionIns = Instantiate(explosionObj, , Quaternion.identity);
     }

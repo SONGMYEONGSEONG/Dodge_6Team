@@ -27,6 +27,7 @@ public class PlayerCollision : MonoBehaviour
         // 피격 쿨타임 구현하기
         if (enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
+            SoundManager.Instance.PlaySFX(SoundManager.Sfx.Hit);
             StartCoroutine(SpriteColorTime());
             enemyCollisionCooldown = false;
             GameManager.Instance.CurPlayerLife--;
@@ -35,6 +36,7 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.CompareTag("Item"))
         {
+            SoundManager.Instance.PlaySFX(SoundManager.Sfx.Item);
             ItemController itemController = collision.GetComponent<ItemController>();
             ItemSO collisionItemSO = itemController._ItemSO;
             StartCoroutine(ApplyItemTime(collisionItemSO, collisionItemSO.CoolTime));

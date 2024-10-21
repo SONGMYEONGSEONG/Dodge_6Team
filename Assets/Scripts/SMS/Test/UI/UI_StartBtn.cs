@@ -11,6 +11,8 @@ public class UI_StartBtn : MonoBehaviour
     [SerializeField] private GameObject player2P;
     public void GameStart()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Sfx.Select);
+
         GameManager.Instance.Initialize();
         GameManager.Instance.IsPlaying = true;
         OnEventGameStart?.Invoke();

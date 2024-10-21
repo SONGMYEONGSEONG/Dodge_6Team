@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EffectManager : SpawnManager<EffectController>
 {
-
-
     public override void Initialize()
     {
         Debug.Log(gameObject.name + "Initalize 완료!");

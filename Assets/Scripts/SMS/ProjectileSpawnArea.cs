@@ -13,7 +13,21 @@ public class ProjectileSpawnArea : MonoBehaviour
 
     Coroutine RandomSpawnCoroutin;
     [SerializeField] private float spawnTime = 1.0f;
-    public float SpawnTime { get { return spawnTime; } set { spawnTime = value; } }
+    [SerializeField] private float spawnTimeLimit = 0.1f;
+    public float SpawnTime
+    {
+        get
+        {
+            return spawnTime;
+        }
+        set
+        {
+            if (spawnTime - value >= spawnTimeLimit)
+            {
+                spawnTime = value;
+            }
+        }
+    }
 
     private float halfWidth;
     private float halfHeight;

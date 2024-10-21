@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UI_RetryBtn : MonoBehaviour
-{
-    [SerializeField] private string sceneName;
-    
+{   
     public void RetryBtn()
     {
-        SceneManager.LoadScene(sceneName);
+        SoundManager.Instance.PlaySFX(SoundManager.Sfx.Select);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

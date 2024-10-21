@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3705075100605071748}
   - component: {fileID: 2213451394785297337}
   - component: {fileID: 8079706641515127177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43, y: 0.8927627}
+  m_Size: {x: 0.4, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &7947182010825235892
 MonoBehaviour:
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statHandler: {fileID: 8079706641515127177}
+  playerNum: 1
 --- !u!114 &8121995393735073048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ GameObject:
   - component: {fileID: 1363924345626291151}
   - component: {fileID: 389463470920693850}
   - component: {fileID: 7905334667666266569}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7828683809405190804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BullerSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,16 +15,19 @@ public class PlayerCollision : MonoBehaviour
     private bool ShieldnCooldown = true;
     [SerializeField] private SpriteRenderer childObjspriteRender;
 
+    private Color originColor;
     private void Start()
     {
         statHandler = GetComponent<StatHandler>();
         childObjspriteRender = gameObject.transform.GetComponentInChildren<SpriteRenderer>();
+        originColor = childObjspriteRender.color;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 피격 쿨타임 구현하기
         if (enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
+            SoundManager.Instance.PlaySFX(SoundManager.Sfx.Hit);
             StartCoroutine(SpriteColorTime());
             enemyCollisionCooldown = false;
             GameManager.Instance.CurPlayerLife--;
@@ -33,6 +36,7 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.CompareTag("Item"))
         {
+            SoundManager.Instance.PlaySFX(SoundManager.Sfx.Item);
             ItemController itemController = collision.GetComponent<ItemController>();
             ItemSO collisionItemSO = itemController._ItemSO;
             StartCoroutine(ApplyItemTime(collisionItemSO, collisionItemSO.CoolTime));
@@ -40,7 +44,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void TriggerCoolDown()
     {
-        childObjspriteRender.color = new Color32(255, 255, 255, 255);
+        childObjspriteRender.color = originColor;
         enemyCollisionCooldown = true;
         Debug.Log("쿨다운 해제");
     }

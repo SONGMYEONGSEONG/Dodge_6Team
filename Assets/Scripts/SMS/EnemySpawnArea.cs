@@ -15,7 +15,21 @@ public class EnemySpawnArea : MonoBehaviour
 
     Coroutine RandomSpawnCoroutin;
     [SerializeField] private float spawnTime = 4.0f;
-    public float SpawnTime { get { return spawnTime; } set { spawnTime = value; } }
+    [SerializeField] private float spawnTimeLimit = 0.5f;
+    public float SpawnTime 
+    { 
+        get 
+        { 
+            return spawnTime; 
+        } 
+        set 
+        {
+            if (spawnTime - value >= spawnTimeLimit)
+            {
+                spawnTime = value;
+            }
+        } 
+    }
 
     private float halfWidth;
     private float halfHeight;

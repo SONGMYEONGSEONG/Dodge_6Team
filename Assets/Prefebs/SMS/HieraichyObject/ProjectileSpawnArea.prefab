@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 798158568692867680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.12, z: 0}
+  m_LocalPosition: {x: 0, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62,7 +62,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 24, y: 2}
+  m_Size: {x: 40, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &5892383201744830726
 MonoBehaviour:
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1600550028075116143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.96, y: 0, z: 0}
+  m_LocalPosition: {x: -19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +157,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 16}
+  m_Size: {x: 2, y: 24}
   m_EdgeRadius: 0
 --- !u!114 &822839761533761161
 MonoBehaviour:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 2
   collider: {fileID: 1203127928159734238}
   projectailSpawnManager: {fileID: 0}
   spawnTime: 2
@@ -252,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 5695550286420854281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.01, y: 0, z: 0}
+  m_LocalPosition: {x: 19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,7 +287,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -301,7 +301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 16}
+  m_Size: {x: 2, y: 24}
   m_EdgeRadius: 0
 --- !u!114 &8568977260418297230
 MonoBehaviour:
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 3
   collider: {fileID: 7775919671662396356}
   projectailSpawnManager: {fileID: 0}
   spawnTime: 2
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 6136520585769830812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.12, z: 0}
+  m_LocalPosition: {x: 0, y: -13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,7 +382,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -396,7 +396,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 24, y: 2}
+  m_Size: {x: 40, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &310225900433955177
 MonoBehaviour:
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa36d3b6aed5545849eebc1fc06079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 1
   collider: {fileID: 8430235051835122487}
   projectailSpawnManager: {fileID: 0}
   spawnTime: 4

@@ -7,20 +7,18 @@ using UnityEngine.UI;
 public class UI_StartBtn : MonoBehaviour
 {
     public static event Action OnEventGameStart;
-    [SerializeField] private GameObject titleLoge;
+    [SerializeField] private GameObject[] disableObjects;
     [SerializeField] private GameObject player2P;
-    [SerializeField] private Button[] buttons;
     public void GameStart()
     {
         GameManager.Instance.Initialize();
         GameManager.Instance.IsPlaying = true;
         OnEventGameStart?.Invoke();
 
-       foreach(Button button in buttons) 
-        { 
-            button.gameObject.SetActive(false);
+        foreach (GameObject disableObject in disableObjects)
+        {
+            disableObject.gameObject.SetActive(false);
         }
-        titleLoge.gameObject.SetActive(false);
     }
 
     public void GameStart2Player()

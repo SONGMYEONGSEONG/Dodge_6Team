@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LifeItemSO
   m_EditorClassIdentifier: 
   ItemName: Item_Shield
-  PoolCount: 10
+  PoolCount: 30
   ProjectilePower: 0
   AttackSpeed: 0
   Shield: 1

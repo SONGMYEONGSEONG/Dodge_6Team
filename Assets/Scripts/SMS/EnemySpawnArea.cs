@@ -24,7 +24,11 @@ public class EnemySpawnArea : MonoBehaviour
         } 
         set 
         {
-            if (spawnTime - value >= spawnTimeLimit)
+            if (value <= spawnTimeLimit)
+            {
+                spawnTime = spawnTimeLimit;
+            }
+            else
             {
                 spawnTime = value;
             }

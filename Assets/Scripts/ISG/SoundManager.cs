@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,56 +6,81 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
-    private AudioSource audioSource;
-    public AudioClip clip;
+
+    [Header("#BGM")]
+    public AudioClip bgmClip;
+    public float bgmVolume; 
+    AudioSource bgmPlayer;
+
+    [Header("#SFX")]
+    public AudioClip[] sfxClips;
+    public float sfxVolume;
+    public int channels;
+    AudioSource[] sfxPlayers;
+    int channelIndex;
+
+    public enum Sfx { Collision,  Dead, Hit, Item, Select, Gameover, }
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-     
+        Instance = this;
+        Init();
     }
 
-    private void Start()
+    void Init()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        //배경음 플레이어 초기화
+        GameObject bgmObject = new GameObject("BGMPlayer");
+        bgmObject.transform.parent = transform;
+        bgmPlayer = bgmObject.AddComponent<AudioSource>();
+        bgmPlayer.playOnAwake = false;
+        bgmPlayer.loop = true;
+        bgmPlayer.volume = bgmVolume;
+        bgmPlayer.clip = bgmClip;
+        //효과음 플레이어 초기화
+        GameObject sfxObject = new GameObject("SFXPlayer");
+        sfxObject.transform.parent = transform;
+        sfxPlayers = new AudioSource[channels];
 
-        PlaySound();
+        for(int index = 0; index < sfxPlayers.Length; index++)
+        {
+            sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
+            sfxPlayers[index].playOnAwake = false;
+            sfxPlayers[index].volume = sfxVolume;
+        }
+        PlayBGM(true);
     }
 
-    public void PlaySound()
+    public void PlayBGM(bool isPlay)
     {
-        if (clip != null)
+        if (isPlay)
         {
-            audioSource.clip = clip;
-            audioSource.Play();
+            bgmPlayer.Play();
         }
         else
         {
-            Debug.LogWarning("오디오클립없음");
+            bgmPlayer.Stop();
         }
     }
 
-    public void ContolSound(bool shouldPlay)
+    public void PlaySFX(Sfx sfx)
     {
-        if(!shouldPlay)
+        for (int index = 0; index < sfxPlayers.Length; index++)
         {
-            audioSource.Play();
-        }
-        else
-        {
-            audioSource.Stop();
+            int loopIndex = (index + channelIndex) % sfxPlayers.Length;
+
+            if (sfxPlayers[loopIndex].isPlaying)
+                continue;
+
+            int ranIndex = 0;
+            if (sfx == Sfx.Hit)
+            {
+                ranIndex = Random.Range(0, 2);
+            }
+            channelIndex = loopIndex;
+            sfxPlayers[loopIndex].clip = sfxClips[(int)sfx];
+            sfxPlayers[loopIndex].Play();
+            break;
         }
     }
 }

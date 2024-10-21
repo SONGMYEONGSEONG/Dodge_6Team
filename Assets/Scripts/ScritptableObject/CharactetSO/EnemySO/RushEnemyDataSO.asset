@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9641c20e4b708694689837c42475627d, type: 3}
   m_Name: RushEnemyDataSO
   m_EditorClassIdentifier: 
-  HP: 2
+  HP: 1
   Speed: 5
   enemyName: RushEnemy
   Score: 100
-  PoolCount: 20
+  ShootCount: 0
+  ShootDelay: 0
+  TargetDist: 0
+  PoolCount: 80

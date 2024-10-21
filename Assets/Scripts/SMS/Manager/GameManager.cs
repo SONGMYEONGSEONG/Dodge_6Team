@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour, iManager
     }
 
     [SerializeField] private UI_CurScoreAndTimeAndLife uI_CurScoreAndTimeAndLife;
+    public ProjectailSpawnManager ProjectailObjectPool { get; private set; }
     private GameDifficultyManager gameDifficultyManager;
     private float curGameTime = 0.0f;
     private int curGameScore = 0;
@@ -43,8 +44,7 @@ public class GameManager : MonoBehaviour, iManager
 
     private void Awake()
     {
-        instance = this;
-       
+        instance = this;  
     }
 
     private void Start()
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour, iManager
 
     public void Initialize()
     {
+        ProjectailObjectPool = GetComponentInChildren<ProjectailSpawnManager>();
         gameDifficultyManager = GetComponent<GameDifficultyManager>();
         Time.timeScale = 1.0f;
         curGameTime = 0.0f;

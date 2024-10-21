@@ -13,11 +13,12 @@ public class PlayerInputController : TopDownController
         camera = Camera.main;
         inputAction = GetComponent<PlayerInput>().actions;
         OnDisEnablePlayerInput();
+
+        UI_StartBtn.OnEventGameStart += OnEnablePlayerInput;
     }
 
     private void Start()
     {
-        UI_StartBtn.OnEventGameStart += OnEnablePlayerInput;
         GameManager.Instance.OnEventGameOver += OnDisEnablePlayerInput;
     }
 

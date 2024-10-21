@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 {
     [SerializeField] protected GameObject findPlayer;
-    [SerializeField] protected GameObject explosionObj;
+    //[SerializeField] protected GameObject explosionObj;
 
     protected GameObject enemyspriteRotation;
     public Rigidbody2D rb;
@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     [SerializeField] protected EnemySO enemySO;
     /*20241017 - �۸��� �����Ҽ� �ְ� ������Ƽ ����*/
     public EnemySO EnemySO { get { return enemySO; } }
+
+    private int health;
 
     /*20241017 - �۸��� ������Ʈ Ǯ���� ���� �̺�Ʈ �߰�*/
     public event Action<EnemyController> OnEventPushObject;
@@ -31,7 +33,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     }
     protected void EnemyDie()
     {
-        OnEventDieObject?.Invoke(this);
+       OnEventDieObject?.Invoke(this);
     }
 
     public void Start()
@@ -39,6 +41,8 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         enemyspriteRotation = gameObject.transform.GetChild(0).gameObject;
         findPlayer = GameObject.FindGameObjectWithTag("Player").gameObject;
         rb = GetComponent<Rigidbody2D>();
+
+        health = enemySO.HP;
     }
 
     public void EnemyMove(GameObject _player, float speed)
@@ -54,10 +58,16 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            OnDieEffect();
-            Invoke("DropItem", 0.1f);
-            EnemyDie();
-            CompletePurPose();
+            health--;
+
+            if (health <= 0)
+            {
+                OnDieEffect();
+                Invoke("DropItem", 0.1f);
+                EnemyDie();
+                CompletePurPose();
+            }
+    
         }
         else if (collision.CompareTag("Player") || collision.CompareTag("ObjectPush"))
         {

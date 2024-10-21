@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2860289830893114113}
   - component: {fileID: 8532800985980510718}
-  - component: {fileID: 5865750119074558806}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -36,6 +35,7 @@ Transform:
   - {fileID: 8579304990402496617}
   - {fileID: 7848237974602461995}
   - {fileID: 6191831157538601481}
+  - {fileID: 7439601966827986556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8532800985980510718
@@ -51,30 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uI_CurScoreAndTimeAndLife: {fileID: 0}
---- !u!114 &5865750119074558806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258143213950094996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca81f77558163542a3d6a86f277a615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpawnArea:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemySpawnArea:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnTimeDifficulty: 0.3
-  difficultyChangeTime: 10
 --- !u!1 &6114936938282902690
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +106,62 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 108ba793f6acfe746bd4ff79c8f859fe, type: 3}
   sfxVolume: 0.1
   channels: 6
+--- !u!1 &6667371846143343666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7439601966827986556}
+  - component: {fileID: 1292390654629355920}
+  m_Layer: 0
+  m_Name: ' GameDifficultyManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7439601966827986556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667371846143343666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2860289830893114113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1292390654629355920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667371846143343666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca81f77558163542a3d6a86f277a615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnArea:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemySpawnArea:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnTimeDifficulty: 0.3
+  difficultyChangeTime: 15
 --- !u!1001 &136987392007148309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2860289830893114113}
     m_Modifications:
+    - target: {fileID: 222488329111400032, guid: d4b3064ed3d4110458b3b64e04837e35, type: 3}
+      propertyPath: itemSpawnPercent
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 987718998405622247, guid: d4b3064ed3d4110458b3b64e04837e35, type: 3}
       propertyPath: m_Name
       value: ItemSpawnManager

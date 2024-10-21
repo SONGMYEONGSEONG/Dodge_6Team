@@ -19,13 +19,19 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+     
+    }
+
+    private void Start()
+    {
         audioSource = GetComponent<AudioSource>();
-        if (audioSource == null )
+        if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-    }
 
+        PlaySound();
+    }
 
     public void PlaySound()
     {

@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 1
   collider: {fileID: 8968550224195777203}
   enemySpawnManager: {fileID: 0}
   spawnTime: 4
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 2
   collider: {fileID: 4266129043472200922}
   enemySpawnManager: {fileID: 0}
   spawnTime: 4
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14da3c43236bcf64d947c4822e31341f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPos: 0
+  areaPos: 3
   collider: {fileID: 499600788189777126}
   enemySpawnManager: {fileID: 0}
   spawnTime: 4

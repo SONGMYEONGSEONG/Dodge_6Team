@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour, iManager
     }
 
     [SerializeField] private UI_CurScoreAndTimeAndLife uI_CurScoreAndTimeAndLife;
-
+    private GameDifficultyManager gameDifficultyManager;
     private float curGameTime = 0.0f;
     private int curGameScore = 0;
     private int curPlayerLife = 3;
@@ -36,12 +36,15 @@ public class GameManager : MonoBehaviour, iManager
     public int CurPlayerLife { get { return curPlayerLife; } set { curPlayerLife = value; } }
 
     private bool isPlaying;
+
+
     public bool IsPlaying { get { return isPlaying; } set { isPlaying = value; } }
     public event Action OnEventGameOver;
 
     private void Awake()
     {
-         instance = this;
+        instance = this;
+       
     }
 
     private void Start()
@@ -51,7 +54,8 @@ public class GameManager : MonoBehaviour, iManager
 
     public void Initialize()
     {
-       
+        gameDifficultyManager = GetComponent<GameDifficultyManager>();
+        Time.timeScale = 1.0f;
         curGameTime = 0.0f;
         curGameScore = 0;
         curPlayerLife = 3;
@@ -67,7 +71,6 @@ public class GameManager : MonoBehaviour, iManager
 
             GetLife(curPlayerLife);
         }
-
     }
 
     //점수를 획득 하는 메서드, 이벤트로 구성 할것 
@@ -93,12 +96,18 @@ public class GameManager : MonoBehaviour, iManager
     }
     public void GetLife(int life)
     {
-        if(life <= 0)
+        if (life <= 0)
         {
             isPlaying = false;
-            OnEventGameOver ?.Invoke();
+            OnEventGameOver?.Invoke();
+            Invoke("TimeStop", 0.5f);
         }
 
         uI_CurScoreAndTimeAndLife.LifeDisplay(life);
+    }
+
+    private void TimeStop()
+    {
+        Time.timeScale = 0.0f;
     }
 }

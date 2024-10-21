@@ -9,5 +9,5 @@ public enum EnumSpawnArea
 
 public enum EnumSpawnAreaLimit
 {
-    UPDownLimit = 6, LeftRightLimit = 10
+    UPDownLimit = 13, LeftRightLimit = 19
 }

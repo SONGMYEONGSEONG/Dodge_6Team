@@ -38,6 +38,7 @@ public class EnemySpawnArea : MonoBehaviour
         }
 
         UI_StartBtn.OnEventGameStart += GameStart;
+        GameManager.Instance.OnEventGameOver += GameOver;
     }
 
     //Up Aread에서만 랜덤생성 -Test
@@ -52,6 +53,11 @@ public class EnemySpawnArea : MonoBehaviour
         {
             RandomSpawnCoroutin = StartCoroutine(RandomSpawn(0));
         }
+    }
+
+    public void GameOver()
+    {
+        gameObject.SetActive(false);
     }
     //AreaIndex 수정해야됨 
     IEnumerator RandomSpawn(int areaIndex)

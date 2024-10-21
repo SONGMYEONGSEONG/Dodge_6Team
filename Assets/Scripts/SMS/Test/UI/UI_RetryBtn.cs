@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class UI_RetryBtn : MonoBehaviour
 {
+    [SerializeField] private string sceneName;
+    
     public void RetryBtn()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(sceneName);
     }
 
 }

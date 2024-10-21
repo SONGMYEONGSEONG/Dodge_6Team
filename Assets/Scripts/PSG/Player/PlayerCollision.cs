@@ -69,17 +69,17 @@ public class PlayerCollision : MonoBehaviour
         GameManager.Instance.GetScore(itemSO.Score);
         yield return null;
 
-        //Debug.Log("아이템 효과 적용. 지속 시간: " + duration + "초");
+        Debug.Log("아이템 효과 적용. 지속 시간: " + duration + "초");
 
-        //// 주어진 시간(duration) 동안 대기
-        //yield return new WaitForSeconds(duration);
+        // 주어진 시간(duration) 동안 대기
+        yield return new WaitForSeconds(duration);
 
-        //// 원래 상태로 복구
-        //statHandler.ProjectilePower -= itemSO.ProjectilePower;
-        //statHandler.AttackSpeed += itemSO.AttackSpeed;
-        //statHandler.Speed -= itemSO.Speed;
-        //statHandler.Shield -= itemSO.Shield;
+        // 원래 상태로 복구
+        statHandler.ProjectilePower -= itemSO.ProjectilePower;
+        statHandler.AttackSpeed += itemSO.AttackSpeed;
+        statHandler.Speed -= itemSO.Speed;
+        statHandler.Shield -= itemSO.Shield;
 
-        //Debug.Log("아이템 효과 종료.");
+        Debug.Log("아이템 효과 종료.");
     }
 }

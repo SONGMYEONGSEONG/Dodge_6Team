@@ -15,5 +15,5 @@ MonoBehaviour:
   ProjectilePower: 1
   AttackSpeed: 0.2
   Shield: 1
-  Speed: 5
+  Speed: 10
   point: 100

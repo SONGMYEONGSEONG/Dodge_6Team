@@ -2,7 +2,6 @@
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class TopDownShooting : MonoBehaviour
 {
@@ -48,7 +47,7 @@ public class TopDownShooting : MonoBehaviour
                 break;
 
             case false://홀수
-
+                
                 Bullet bullet;
                 bullet = projectailObjectPool.PoolObject("PlayerBulletSmall", projectileSpawnPosition.position);
                 bullet.OnMove(projectileSpawnPosition.up);
@@ -68,7 +67,7 @@ public class TopDownShooting : MonoBehaviour
         float playerRotZ = playerPivot.transform.eulerAngles.z;
 
         Bullet bullet;
-        float roopCount = Mathf.Ceil(projectilePower * 0.5f);
+        int roopCount = Mathf.FloorToInt(projectilePower * 0.5f);
         for (int i = 0; i < roopCount; i++)
         { 
             //왼쪽 방향 총알 로직

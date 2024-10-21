@@ -28,6 +28,10 @@ public class PlayerCollision : MonoBehaviour
         if (enemyCollisionCooldown && (collision.CompareTag("Enemy") || collision.CompareTag("Bullet")))
         {
             SoundManager.Instance.PlaySFX(SoundManager.Sfx.Hit);
+            if (statHandler.ProjectilePower > 1)
+            {
+                statHandler.ProjectilePower--;// 피격되면 파워가 1씩 감소
+            }
             StartCoroutine(SpriteColorTime());
             enemyCollisionCooldown = false;
             GameManager.Instance.CurPlayerLife--;
@@ -54,11 +58,11 @@ public class PlayerCollision : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             childObjspriteRender.color = new Color32(255, 0, 0, 100);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.2f);
             childObjspriteRender.color = new Color32(255, 200, 200, 100);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.2f);
         }
-        TriggerCoolDown();//1초의 피격 쿨타임
+        TriggerCoolDown();//0.4초의 피격 쿨타임
     }
     
     private IEnumerator ApplyItemTime(ItemSO itemSO, float duration)
@@ -79,7 +83,7 @@ public class PlayerCollision : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         // 원래 상태로 복구
-        statHandler.ProjectilePower -= itemSO.ProjectilePower;
+        //statHandler.ProjectilePower -= itemSO.ProjectilePower;
         statHandler.AttackSpeed += itemSO.AttackSpeed;
         statHandler.Speed -= itemSO.Speed;
         statHandler.Shield -= itemSO.Shield;

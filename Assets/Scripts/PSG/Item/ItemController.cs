@@ -17,12 +17,12 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
     {
         if (itemFalseCoroutine == null)
         {
-            StartCoroutine(ItemActiveFalseDelay());
+            itemFalseCoroutine = StartCoroutine(ItemActiveFalseDelay());
         }
         else
         {
             StopCoroutine(itemFalseCoroutine);
-            StartCoroutine(ItemActiveFalseDelay());
+            itemFalseCoroutine = StartCoroutine(ItemActiveFalseDelay());
         }
        
     }
@@ -31,11 +31,15 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
     {
         if (collision.CompareTag("Player"))
         {
+            StopCoroutine(itemFalseCoroutine);
+            itemFalseCoroutine = null;
+
             //오브젝트 푸쉬 코드 작성 
             //gameObject.SetActive(false);
             OnEventPushObject?.Invoke(this);
         }
     }
+
     private IEnumerator ItemActiveFalseDelay()
     {
         yield return new WaitForSeconds(itemFalseDelay);

@@ -13,6 +13,9 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
 
     Coroutine itemFalseCoroutine;
 
+    private bool isPushed = false; //충돌처리 함수와 코루틴이 동시에 동작하는것을 방지하기 위한 플래그변수
+
+
     private void OnEnable()
     {
         if (itemFalseCoroutine == null)
@@ -24,18 +27,17 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
             StopCoroutine(itemFalseCoroutine);
             itemFalseCoroutine = StartCoroutine(ItemActiveFalseDelay());
         }
-       
+        isPushed = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !isPushed)
         {
+            isPushed = true;
             StopCoroutine(itemFalseCoroutine);
             itemFalseCoroutine = null;
-
-            //오브젝트 푸쉬 코드 작성 
-            //gameObject.SetActive(false);
+           
             OnEventPushObject?.Invoke(this);
         }
     }
@@ -44,6 +46,11 @@ public class ItemController : MonoBehaviour , iPoolable<ItemController>
     {
         yield return new WaitForSeconds(itemFalseDelay);
 
-        OnEventPushObject?.Invoke(this);
+        if(!isPushed)
+        {
+            isPushed = true;
+            OnEventPushObject?.Invoke(this);
+        }
+       
     }
 }

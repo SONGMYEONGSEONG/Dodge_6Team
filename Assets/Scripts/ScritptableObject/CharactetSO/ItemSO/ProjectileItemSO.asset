@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ProjectileItemSO
   m_EditorClassIdentifier: 
   ItemName: Item_ProjectilePower
-  PoolCount: 10
+  PoolCount: 30
   ProjectilePower: 1
   AttackSpeed: 0
   Shield: 0

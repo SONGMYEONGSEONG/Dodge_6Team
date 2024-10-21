@@ -17,6 +17,6 @@ MonoBehaviour:
   enemyName: ShooterEnemy
   Score: 200
   ShootCount: 3
-  ShootDelay: 1.5
+  ShootDelay: 2.2
   TargetDist: 15
   PoolCount: 40

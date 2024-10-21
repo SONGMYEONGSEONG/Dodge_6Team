@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,7 +16,7 @@ public class TopDownShooting : MonoBehaviour
 
     [SerializeField] private float angle = 30.0f;
 
-   public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
 
     private void Awake()
     {
@@ -47,18 +48,19 @@ public class TopDownShooting : MonoBehaviour
                 break;
 
             case false://홀수
-                
+
                 Bullet bullet;
                 bullet = projectailObjectPool.PoolObject("PlayerBulletSmall", projectileSpawnPosition.position);
                 bullet.OnMove(projectileSpawnPosition.up);
 
-                creatProjectileMulti(statHandler.ProjectilePower, 0);
+                creatProjectileMulti(statHandler.ProjectilePower, 1.0f);
                 break;
         }
         SoundManager.Instance.PlaySFX(SoundManager.Sfx.Fire);
     }
 
-    private void creatProjectileMulti(int projectilePower, float pos)
+    //divide : 짝수 탄환시 중앙이 너무 비는것 같아서 보정해주는 변수 
+    private void creatProjectileMulti(int projectilePower, float divide)
     {
         if (projectilePower <= 1) return;
 
@@ -69,21 +71,20 @@ public class TopDownShooting : MonoBehaviour
         Bullet bullet;
         int roopCount = Mathf.FloorToInt(projectilePower * 0.5f);
         for (int i = 0; i < roopCount; i++)
-        { 
+        {
             //왼쪽 방향 총알 로직
             bullet = projectailObjectPool.PoolObject("PlayerBulletSmall", projectileSpawnPosition.position);
-            bullet.OnMove(GetProjectileMoveDir(playerRotZ, leftAngle,i));
+            bullet.OnMove(GetProjectileMoveDir(playerRotZ, leftAngle, i, divide));
 
             //오른쪽 방향 총알 로직
             bullet = projectailObjectPool.PoolObject("PlayerBulletSmall", projectileSpawnPosition.position);
-            bullet.OnMove(GetProjectileMoveDir(playerRotZ, rightAngle, i));
+            bullet.OnMove(GetProjectileMoveDir(playerRotZ, rightAngle, i, divide));
         }
     }
 
-    private Vector2 GetProjectileMoveDir(float playerRotZ, float dirAngle,int index)
+    private Vector2 GetProjectileMoveDir(float playerRotZ, float dirAngle, int index, float divide)
     {
-        float resultAngle = (playerRotZ + (dirAngle * (index + 1)) + 90.0f) * Mathf.Deg2Rad;
-
+        float resultAngle = (playerRotZ + (dirAngle * divide * (index + 1)) + 90.0f) * Mathf.Deg2Rad;
 
         float x = Mathf.Cos(resultAngle);
         float y = Mathf.Sin(resultAngle);

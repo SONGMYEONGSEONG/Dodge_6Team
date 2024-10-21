@@ -11,14 +11,27 @@ public class GameDifficultyManager : MonoBehaviour
     [SerializeField] private float difficultyChangeTime = 15.0f;//해당 시간이 경과하면 난이도 변경
 
     private Coroutine TimeCheckCoroutine;
+
     private void Start()
     {
         UI_StartBtn.OnEventGameStart += GameStart;
     }
+    private void OnDestroy()
+    {
+        UI_StartBtn.OnEventGameStart -= GameStart;
+    }
 
     public void GameStart()
     {
-        TimeCheckCoroutine = StartCoroutine(GameTimeCheck());
+        if (TimeCheckCoroutine == null)
+        {
+            TimeCheckCoroutine = StartCoroutine(GameTimeCheck());
+        }
+        else
+        {
+            StopCoroutine(TimeCheckCoroutine);
+            TimeCheckCoroutine = StartCoroutine(GameTimeCheck());
+        }
     }
 
     //시간에 따른 게임 난이도 증가

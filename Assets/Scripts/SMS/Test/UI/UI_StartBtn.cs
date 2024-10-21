@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UI_StartBtn : MonoBehaviour
 {
     public static event Action OnEventGameStart;
+    [SerializeField] private GameObject titleLoge;
     [SerializeField] private GameObject player2P;
     [SerializeField] private Button[] buttons;
     public void GameStart()
@@ -19,6 +20,7 @@ public class UI_StartBtn : MonoBehaviour
         { 
             button.gameObject.SetActive(false);
         }
+        titleLoge.gameObject.SetActive(false);
     }
 
     public void GameStart2Player()

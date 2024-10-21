@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5700035893367738109}
-  - component: {fileID: 2103673849837851554}
+  - component: {fileID: 8693136543711678141}
   - component: {fileID: 7286777024569303456}
   - component: {fileID: 6434879457011105869}
   m_Layer: 0
@@ -151,7 +151,7 @@ Transform:
   - {fileID: 6833444961616899843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &2103673849837851554
+--- !u!114 &8693136543711678141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,19 +160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026171071943427939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86958aec512050a41aaff6b2b2f34b14, type: 3}
+  m_Script: {fileID: 11500000, guid: 2829e36feff6ec34fa4f59e59ebd7649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   findPlayer: {fileID: 0}
-  explosionObj: {fileID: 2765972656174537876, guid: efbff516606fff742a1b3a1cd5d72cb9, type: 3}
-  rb: {fileID: 0}
+  rb: {fileID: 7286777024569303456}
   enemySO: {fileID: 11400000, guid: bedec0fa4aa0eb644ad6f30798d66acf, type: 2}
-  itemObj:
-  - {fileID: 6746578536009579795, guid: dfcbc2c096dcfae45997e84dd654eb7e, type: 3}
-  - {fileID: 4606238360280745753, guid: ec454ae264645e34baf706303df3c357, type: 3}
-  - {fileID: 4888008447813216290, guid: 02e49acbf4382d840b23f27a1dcdede3, type: 3}
-  - {fileID: 3343091203498433642, guid: 42434535b39e1664f85d59f30f31d6b5, type: 3}
-  - {fileID: 812824274025193936, guid: ccc76b8465c3ecd4fb13dc6481ba2bb3, type: 3}
+  playerDist: 5
 --- !u!50 &7286777024569303456
 Rigidbody2D:
   serializedVersion: 4

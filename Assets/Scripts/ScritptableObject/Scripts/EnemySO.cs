@@ -11,6 +11,9 @@ public class EnemySO : ScriptableObject
     [Header("Enemy Info")] 
     public string enemyName;
     public int Score;
+    public int ShootCount;
+    public float ShootDelay;
+    public float TargetDist;
 
     [Header("ObjectPooling Count")]
     public int PoolCount;

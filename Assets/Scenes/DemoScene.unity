@@ -6264,6 +6264,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3004131911143828300, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766543833178175559, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635107497803921609, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455186019534224920, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_Size.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868120402082168138, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431685242495957360, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
+      propertyPath: m_Size.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7597378553987499101, guid: e529806126f1fcb49bfc8b05878568b1, type: 3}
       propertyPath: m_Name
       value: ObjectPushCollider

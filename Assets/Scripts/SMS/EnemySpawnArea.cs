@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class EnemySpawnArea : MonoBehaviour
 {
     static event Action OnEventGameStart;
@@ -62,7 +60,6 @@ public class EnemySpawnArea : MonoBehaviour
     private void OnDestroy()
     {
         UI_StartBtn.OnEventGameStart -= GameStart;
-        GameManager.Instance.OnEventGameOver -= GameOver;
     }
 
     //Up Aread에서만 랜덤생성 -Test

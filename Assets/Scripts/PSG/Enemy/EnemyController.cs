@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
     public EnemySO EnemySO { get { return enemySO; } }
 
     private int health;
+    private bool isdead = false;
 
     /*20241017 - �۸��� ������Ʈ Ǯ���� ���� �̺�Ʈ �߰�*/
     public event Action<EnemyController> OnEventPushObject;
@@ -41,13 +42,12 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
         enemyspriteRotation = gameObject.transform.GetChild(0).gameObject;
         findPlayer = GameObject.FindGameObjectWithTag("Player").gameObject;
         rb = GetComponent<Rigidbody2D>();
-
+        isdead = false;
         health = enemySO.HP;
     }
 
     public void EnemyMove(GameObject _player, float speed)
     {
-
         Vector3 direction = (_player.transform.position - transform.position).normalized;
         rb.velocity = direction * speed;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
@@ -56,12 +56,13 @@ public class EnemyController : MonoBehaviour, iPoolable<EnemyController>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerBullet"))
+        if (collision.CompareTag("PlayerBullet") && !isdead)
         {
             health--;
 
             if (health <= 0)
             {
+                isdead = true;
                 OnDieEffect();
                 Invoke("DropItem", 0.1f);
                 EnemyDie();
